@@ -15,7 +15,7 @@ function IntroduceContainer() {
           </p>
           <p className="SubText">신분확인을 위해 몇가지를 작성해주세요!!</p>
         </div>
-        <NextBtn className="NextBtn" />
+        <NextBtn link={"/regist"} className="NextBtn" />
       </div>
     </>
   );

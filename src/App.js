@@ -1,9 +1,18 @@
 import IntroduceContainer from "./container/IntroduceContainer";
 import InputContainer from "./container/InputContainer";
 import CompleteContainer from "./container/CompleteContainer";
+import { BrowserRouter, Route, Routes, Link, Switch } from "react-router-dom";
 
 function App() {
-  return <InputContainer />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<IntroduceContainer />} />
+        <Route path="/regist" element={<InputContainer />} />
+        <Route path="/complete" element={<CompleteContainer />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

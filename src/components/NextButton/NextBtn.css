@@ -1,25 +1,27 @@
 * {
-    font-family: "Spoqa Han Sans Neo";
-    font-style: normal;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
 }
 
 .NextBtn {
-    background: #5686e1;
-    border-radius: 30px;
-    border: none;
-    font-size: 28px;
-    font-weight: 400;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 150px;
-    align-content: center;
-    height: 63px;
-    justify-content: center;
-    color: #fff;
+  background: #5686e1;
+  border-radius: 30px;
+  border: none;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 150px;
+  align-content: center;
+  height: 63px;
+  justify-content: center;
+  color: #fff;
 }
-
+span {
+  text-decoration: none;
+}
 .BtnImg {
-    padding: 0 0 0 10px;
+  padding: 0 0 0 10px;
 }

@@ -72,7 +72,7 @@ function InputContainer() {
               <p className="privacy">개인정보수집에 동의합니다.</p>
             </div>
           </label>
-          <NextBtn className="NextBtn" />
+          <NextBtn link={"/complete"} className="NextBtn" />
         </form>
       </div>
     </>

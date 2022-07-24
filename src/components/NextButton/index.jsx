@@ -1,12 +1,16 @@
 import "./NextBtn.css";
 import Next from "../../assets/images/NextPage.png";
+import { Link } from "react-router-dom";
+function NextBtn(prop) {
+  console.log(prop.link);
 
-function NextBtn() {
   return (
-    <button className="NextBtn">
-      <span>다음</span>
-      <img src={Next} className="BtnImg" alt="Next" />
-    </button>
+    <Link to={prop.link} style={{ textDecoration: "none" }}>
+      <button className="NextBtn">
+        <span>다음</span>
+        <img src={Next} className="BtnImg" alt="Next" />
+      </button>
+    </Link>
   );
 }
 
