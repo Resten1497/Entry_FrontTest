@@ -8,7 +8,7 @@ function NextBtn(prop) {
   return (
     <Link to={prop.link} style={{ textDecoration: "none" }}>
       <button type="submit" className="NextBtn">
-        <span>다음</span>
+        <span className="btnTitle">다음</span>
         <img src={Next} className="BtnImg" alt="Next" />
       </button>
     </Link>
