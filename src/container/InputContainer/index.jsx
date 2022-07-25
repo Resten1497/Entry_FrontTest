@@ -1,15 +1,26 @@
 import "./InputContainer.css";
 import NextBtn from "../../components/NextButton";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 function InputContainer() {
-  const { register, watch, formState: { errors }, handleSubmit } = useForm();
-  // console.log(watch("visitorName"));
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const navigate = useNavigate();
+  const handleLinkOnClick = useCallback(
+    () => navigate("/complete"),
+    [navigate]
+  );
 
   const onSubmit = (data) => {
     console.log(data);
-  }
+    handleLinkOnClick();
+  };
 
   return (
     <>
@@ -25,15 +36,19 @@ function InputContainer() {
               placeholder="홍길동 "
               autoComplete="off"
               {...register("visitorName", {
-                required: true
+                required: true,
               })}
-              {...errors.visitorName && errors.visitorName.type === "required" && <p>이름을 입력해주세요.</p>}
             />
+            <p className="error">
+              {errors.visitorName?.type === "required" &&
+                "이름을 입력해주세요!"}
+            </p>
           </label>
+
           <label>
             <p className="inputTitle">전화번호</p>
             <input
-              type="number"
+              type="text"
               name="visitorPhoneNumber"
               className="info"
               id="visitorPhoneNumber"
@@ -41,46 +56,59 @@ function InputContainer() {
               autoComplete="off"
               {...register("visitorPhoneNumber", {
                 required: true,
-                pattern: /^[0-9\b -]{0,13}$/
+                // pattern: /^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/,
+                pattern: {
+                  value: /^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/,
+                  message: "전화번호 입력을 다시 확인해주세요",
+                },
               })}
-              {...errors.visitorPhoneNumber && errors.visitorPhoneNumber.type === "required" && <p>전화번호를 입력해주세요.</p>}
-              {...errors.visitorPhoneNumber && errors.visitorPhoneNumber.type === "pattern" && <p>전화번호를 다시 입력해주세요.</p>}
             />
+            <p className="error">
+              {errors.visitorPhoneNumber?.type === "required" &&
+                "전화번호를 입력해주세요!"}
+              {errors.visitorPhoneNumber?.message}
+            </p>
           </label>
           <label>
             <p className="inputTitle">소속</p>
             <input
               type="text"
-              name="visitorDivision"
+              name="visitorDepartment"
               className="info"
-              id="visitorDivision"
+              id="visitorDepartment"
               placeholder="서울디지텍고등학교"
               autoComplete="off"
-              {...register("visitorDivision", {
+              {...register("visitorDepartment", {
                 required: true,
               })}
-              {...errors.visitorDivision && errors.visitorDivision.type === "required" && <p>소속을 입력해주세요.</p>}
             />
+            <p className="error">
+              {errors.visitorDepartment?.type === "required" &&
+                "소속을 입력해주세요!"}
+            </p>
           </label>
           <label>
             <p className="inputTitle">방문사유</p>
             <input
               type="text"
-              name="visitorPhoneNumber"
+              name="visitorReason"
               className="info"
-              id="visitorPhoneNumber"
+              id="visitorReason"
               placeholder="강의진행"
               autoComplete="off"
-              {...register("visitorDivision", {
+              {...register("visitorReason", {
                 required: true,
               })}
-              {...errors.visitorDivision && errors.visitorDivision.type === "required" && <p>방문사유를 입력해 주세요.</p>}
             />
+            <p className="error">
+              {errors.visitorReason?.type === "required" &&
+                "방문사유를 입력해주세요!"}
+            </p>
           </label>
           <label>
             <p className="inputTitle">체온</p>
             <input
-              type="number"
+              type="text"
               name="temperature"
               className="info"
               id="temperature"
@@ -89,26 +117,32 @@ function InputContainer() {
               {...register("temperature", {
                 required: true,
               })}
-              {...errors.temperature && errors.temperature.type === "required" && <p>체온을 입력해 주세요.</p>}
             />
+            <p className="error">
+              {errors.temperature?.type === "required" &&
+                "현재 온도를 입력해주세요!"}
+            </p>
           </label>
           <label>
             <div className="privacyLabal">
               <input
                 type="checkbox"
-                name="checkBox"
-                id="checkBox"
+                name="privacyLabal"
+                id="privacyLabal"
                 className="checkBox"
-              // {...register("checkBox", {
-              //   required: true,
-              // })}
-              // {...errors.checkBox && errors.checkBox.type === "required" && <p>개인정보 수입에 동의해주세요.</p>}
+                {...register("privacyLabal", {
+                  required: true,
+                })}
               />
               <p className="privacy">개인정보수집에 동의합니다.</p>
             </div>
+            <p className="error">
+              {errors.privacyLabal?.type === "required" &&
+                "개인정보수집에 동의해주세요"}
+            </p>
           </label>
-          {/* <input type="submit" onClick={ } /> */}
-          <NextBtn link={"/complete"} className="NextBtn Btn" />
+
+          <NextBtn className="NextBtn Btn" onclick={null} />
         </form>
       </div>
     </>
