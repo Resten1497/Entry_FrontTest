@@ -17,10 +17,9 @@
     background: #5686e1;
     border-radius: 30px;
     border: none;
-}
-
-span {
-    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .BtnImg {
