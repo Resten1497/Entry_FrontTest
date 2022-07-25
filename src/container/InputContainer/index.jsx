@@ -1,13 +1,12 @@
 import "./InputContainer.css";
 import NextBtn from "../../components/NextButton";
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 function InputContainer() {
   const {
     register,
-    watch,
     handleSubmit,
     formState: { errors },
   } = useForm();
