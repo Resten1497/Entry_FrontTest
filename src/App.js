@@ -1,7 +1,7 @@
 import IntroduceContainer from "./container/IntroduceContainer";
 import InputContainer from "./container/InputContainer";
 import CompleteContainer from "./container/CompleteContainer";
-import { BrowserRouter, Route, Routes, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (

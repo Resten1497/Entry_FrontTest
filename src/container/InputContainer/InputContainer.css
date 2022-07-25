@@ -1,76 +1,82 @@
 * {
-  margin: 0;
-  padding: 0;
-  font-family: "Spoqa Han Sans Neo";
-  font-style: "regular";
+    margin: 0;
+    padding: 0;
+    font-family: "Spoqa Han Sans Neo";
+    font-style: "regular";
 }
 
 .container {
-  width: 600px;
-  height: 100vh;
-  margin: 0 auto;
-  position: relative;
+    width: 600px;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
 }
 
 .form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
 }
 
 .inputTitle {
-  padding-top: 30px;
-  padding-bottom: 12px;
-  font-weight: 400;
-  font-size: 26px;
-  color: #52525c;
+    padding-top: 30px;
+    padding-bottom: 12px;
+    font-weight: 400;
+    font-size: 26px;
+    color: #52525c;
 }
 
 .info {
-  width: 405px;
-  height: 53px;
-  font-weight: 400;
-  font-size: 20px;
-  background: #ffffff;
-  border: 2px solid #d9d9d9;
-  border-radius: 8px;
-  padding-left: 20px;
+    width: 405px;
+    height: 53px;
+    font-weight: 400;
+    font-size: 20px;
+    background: #ffffff;
+    border: 2px solid #d9d9d9;
+    border-radius: 8px;
+    padding-left: 20px;
 }
 
 .info:focus {
-  outline: 2px solid #5686e1;
+    outline: 2px solid #5686e1;
 }
 
 .info::placeholder {
-  font-weight: 400;
-  font-size: 20px;
-  color: #52525c;
-  opacity: 0.5;
+    font-weight: 400;
+    font-size: 20px;
+    color: #52525c;
+    opacity: 0.5;
 }
 
 .checkBox {
-  margin-right: 14px;
-  width: 26px;
-  height: 26px;
-  background: #ffffff;
+    margin-right: 14px;
+    width: 26px;
+    height: 26px;
+    background: #ffffff;
 }
 
 .privacyLabal {
-  margin-top: 33px;
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
+    margin-top: 33px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 }
 
 .privacy {
-  position: relative;
-  bottom: 5px;
-  display: inline-block;
-  font-style: normal;
-  font-weight: 400;
-  height: 26px;
-  font-size: 20px;
+    position: relative;
+    bottom: 5px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    height: 26px;
+    font-size: 20px;
+}
+
+.NextBtn {
+    position: relative;
+    top: 100px;
+    left: 350px;
 }
