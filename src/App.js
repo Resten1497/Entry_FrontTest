@@ -1,6 +1,7 @@
 import IntroduceContainer from "./container/IntroduceContainer";
 import InputContainer from "./container/InputContainer";
 import CompleteContainer from "./container/CompleteContainer";
+// import AdminContainer from './container/AdminContainer';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route path="/complete" element={<CompleteContainer />} />
       </Routes>
     </BrowserRouter>
+    // <AdminContainer />
   );
 }
 

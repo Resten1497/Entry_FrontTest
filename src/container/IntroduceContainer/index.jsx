@@ -3,9 +3,19 @@ import "./IntroduceContainer.css";
 import NextBtn from "../../components/NextButton";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
+
+
 function IntroduceContainer() {
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/regist"), [navigate]);
+  // const hi = e => {
+  //   if (e.keyCode === 13) {
+  //     alert('Enter');
+  //   }
+  // }
+  const handleKeyDown = event => {
+    console.log('User pressed: ', event.key);
+  };
   return (
     <div className="container">
       <div>
@@ -17,9 +27,11 @@ function IntroduceContainer() {
         </p>
         <p className="SubText">신분확인을 위해 몇가지를 작성해주세요!!</p>
       </div>
-      <NextBtn onclick={handleLinkOnClick} className="NextBtn" />
+      <NextBtn onclick={handleLinkOnClick} onKeyDown={handleKeyDown} tabIndex={0} className="NextBtn" id="NextBtn" />
     </div>
   );
 }
+
+
 
 export default IntroduceContainer;
