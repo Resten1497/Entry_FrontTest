@@ -1,11 +1,10 @@
 // import IntroduceContainer from "./container/IntroduceContainer";
 // import InputContainer from "./container/InputContainer";
 // import CompleteContainer from "./container/CompleteContainer";
-// import AdminContainer from './container/AdminContainer';
-import InquiryContainer from './container/InquiryContainer';
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import CameraContainer from "./container/CameraContainer";
-
+// import AdminContainer from './container/AdminContainer';
+import InquiryContainer from './container/InquiryContainer';
 function App() {
   return (
     // <BrowserRouter>

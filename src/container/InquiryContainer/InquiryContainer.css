@@ -5,6 +5,34 @@
     font-style: "regular";
 }
 
+.day {
+    margin-bottom: 50px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 58px;
+    border: none;
+}
+
+.day:focus {
+    outline: none;
+}
+
+input[type="month"] {
+    width: 400px;
+}
+
+input[type="month"]::-webkit-calendar-picker-indicator {
+    background: url(../../assets/images/Calendar.png);
+}
+
+table,
+tr,
+td {
+    border: none;
+    text-align: center;
+    border-collapse: collapse;
+}
+
 .inquiryContainer {
     width: 1440px;
     height: 100vh;
@@ -17,4 +45,58 @@
 
 .inquiryTable {
     width: 1440px;
+    height: 60px;
+}
+
+.bodyTable {
+    width: 1440px;
+    height: 480px;
+}
+
+.tableHeader {
+    width: 1440px;
+    height: 60px;
+    background: #F3F3F3;
+}
+
+.over {
+    width: 1440px;
+    height: 480px;
+    overflow-y: scroll;
+}
+
+.tableBody {
+    width: 1440px;
+    height: 480px;
+}
+
+.headData {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+    color: #000000;
+    border: none;
+}
+
+.tbRow {
+    height: 60px;
+}
+
+.data {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.number {
+    width: 150px;
+}
+
+.date,
+.name,
+.reason,
+.inTime,
+.outTime {
+    width: 200px;
 }
