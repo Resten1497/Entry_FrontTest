@@ -1,11 +1,13 @@
 import "./CompleteContainer.css";
-import checkAnimation from "../../assets/images/checkAnimation.gif";
+// import checkAnimation from "../../assets/images/checkAnimation.gif";
+import Animation from "../../components/animation";
 
 function CompleteContainer() {
   return (
     <>
       <div className="container">
-        <img src={checkAnimation} width="150px" alt="checkAnimation" />
+        {/* <img src={checkAnimation} width="150px" alt="checkAnimation" /> */}
+        <Animation />
         <p className="finishTItle">
           입장 절차가 완료되었습니다!
           <br />
