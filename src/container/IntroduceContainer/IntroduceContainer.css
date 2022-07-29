@@ -5,7 +5,7 @@
     font-style: normal;
 }
 
-.container {
+.introduceContainer {
     width: 600px;
     height: 100vh;
     margin: 0 auto;
@@ -30,8 +30,34 @@
     font-weight: 400;
 }
 
-.NextBtn {
+.NextBtnOne {
     position: relative;
-    top: 10px;
-    left: 10px;
+    top: 100px;
+    left: 450px;
+    border: none;
+    width: 153px;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: #5686E1;
+    border-radius: 30px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.NextBtnOne:focus {
+    outline: none;
+}
+
+.btnTitle {
+    font-style: normal;
+    font-weight: 500;
+    padding-left: 5px;
+}
+
+.BtnImg {
+    padding: 0 0 0 5px;
 }

@@ -1,5 +1,5 @@
 import "./InputContainer.css";
-import NextBtn from "../../components/NextButton";
+import Next from "../../assets/images/NextPage.png";
 import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -22,10 +22,14 @@ function InputContainer() {
     sendVisitorData(data);
     handleLinkOnClick();
   };
-
+  const handleKeyDown = (e) => {
+    if(e.key === 'Enter'){
+      handleLinkOnClick();
+    }
+  };
   return (
     <>
-      <div className="container">
+      <div className="inputContainer">
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <label>
             <p className="inputTitle">이름</p>
@@ -128,6 +132,7 @@ function InputContainer() {
             <div className="privacyLabal">
               <input
                 type="checkbox"
+                autoFocus
                 name="privacyLabal"
                 id="privacyLabal"
                 className="checkBox"
@@ -142,8 +147,16 @@ function InputContainer() {
                 "개인정보수집에 동의해주세요"}
             </p>
           </label>
-
-          <NextBtn className="NextBtn Btn" onclick={null} />
+          <button 
+            type="submit"
+            id="NextBtn"
+            className="NextBtnTwo"
+            onClick={null}
+            onKeyDown={handleKeyDown}
+          >
+            <span className="btnTitle">다음</span>
+            <img src={Next} className="BtnImg" alt="Next" />
+          </button>
         </form>
       </div>
     </>
