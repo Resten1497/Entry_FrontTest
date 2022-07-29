@@ -3,6 +3,7 @@ import NextBtn from "../../components/NextButton";
 import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import sendVisitorData from "../../api/sendVisitorData";
 
 function InputContainer() {
   const {
@@ -18,6 +19,7 @@ function InputContainer() {
 
   const onSubmit = (data) => {
     console.log(data);
+    sendVisitorData(data);
     handleLinkOnClick();
   };
 
@@ -72,17 +74,17 @@ function InputContainer() {
             <p className="inputTitle">소속</p>
             <input
               type="text"
-              name="visitorDepartment"
+              name="visitorDivision"
               className="info"
-              id="visitorDepartment"
+              id="visitorDivision"
               placeholder="서울디지텍고등학교"
               autoComplete="off"
-              {...register("visitorDepartment", {
+              {...register("visitorDivision", {
                 required: true,
               })}
             />
             <p className="error">
-              {errors.visitorDepartment?.type === "required" &&
+              {errors.visitorDivision?.type === "required" &&
                 "소속을 입력해주세요!"}
             </p>
           </label>
