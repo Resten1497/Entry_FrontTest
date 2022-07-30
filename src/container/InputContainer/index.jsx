@@ -2,10 +2,13 @@ import "./InputContainer.css";
 import Next from "../../assets/images/NextPage.png";
 import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import sendVisitorData from "../../api/sendVisitorData";
 
 function InputContainer() {
+  const location = useLocation();
+  console.log('state', location.state);
+  const { cardId } = location.state;
   const {
     register,
     handleSubmit,
@@ -23,7 +26,7 @@ function InputContainer() {
     handleLinkOnClick();
   };
   const handleKeyDown = (e) => {
-    if(e.key === 'Enter'){
+    if (e.key === 'Enter') {
       handleLinkOnClick();
     }
   };
@@ -147,7 +150,7 @@ function InputContainer() {
                 "개인정보수집에 동의해주세요"}
             </p>
           </label>
-          <button 
+          <button
             type="submit"
             id="NextBtn"
             className="NextBtnTwo"
@@ -157,6 +160,7 @@ function InputContainer() {
             <span className="btnTitle">다음</span>
             <img src={Next} className="BtnImg" alt="Next" />
           </button>
+          <input type="hidden" value={cardId} name="cardId" />
         </form>
       </div>
     </>

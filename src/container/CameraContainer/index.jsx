@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 const CameraContainer = () => {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-  const handleLinkOnClick = useCallback(() => navigate("/regist"), [navigate]);
+  const handleLinkOnClick = (cardId) => navigate("/regist", { state: cardId });
   useEffect(() => {
     console.log(data);
     if (data) {
-      handleLinkOnClick();
+      handleLinkOnClick(data);
     }
   }, [data]);
   return (
