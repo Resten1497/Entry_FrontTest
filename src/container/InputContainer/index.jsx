@@ -1,4 +1,3 @@
-import "./InputContainer.css";
 import NextBtn from "../../components/buttonComponent/index";
 import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
@@ -149,7 +148,6 @@ function InputContainer(props) {
           </Error>
         </Lable>
         <NextBtn onClick={null} onKeyDown={handleKeyDown} />
-
         <input type="hidden" value={cardId} name="cardId" />
       </Form>
     </Container>
@@ -236,14 +234,4 @@ const Error = styled.p`
   padding: 5px 0 0 5px;
 `;
 
-const StyledNextBtn = styled.button`
-  position: relative;
-  top: 50px;
-  left: 350px;
-  width: 0;
-  height: 0;
-  &:focus {
-    outline: none;
-  }
-`;
 export default InputContainer;

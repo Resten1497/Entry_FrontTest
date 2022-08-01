@@ -1,4 +1,3 @@
-import "./CompleteContainer.css";
 import Animation from "../../components/animation";
 import styled from 'styled-components';
 

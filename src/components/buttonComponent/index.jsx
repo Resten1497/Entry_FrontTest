@@ -4,7 +4,7 @@ import Next from "../../assets/images/NextPage.png";
 
 function Button(props) {
   return (
-    <NextBtn type="submit" onClick={props.onClick} onKeyDown={props.onKeyDown}>
+    <NextBtn type="submit" autoFocus onClick={props.onClick} onKeyDown={props.onKeyDown}>
       <Title>다음</Title>
       <Img src={Next} alt="Next" />
     </NextBtn>

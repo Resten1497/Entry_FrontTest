@@ -1,5 +1,4 @@
 import logo from "../../assets/images/schoolLogo.png";
-// import "./IntroduceContainer.css";
 import NextBtn from "../../components/buttonComponent/index";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
@@ -54,18 +53,6 @@ const MainText = styled.p`
 const SubText = styled.p`
   font-size: 28px;
   font-weight: 400;
-`;
-
-const StyledNextBtn = styled.button`
-  position: relative;
-  top: 100px;
-  left: 450px;
-  border: none;
-  width: 0;
-  height: 0;
-  &:focus {
-    outline: none;
-  }
 `;
 
 export default IntroduceContainer;
