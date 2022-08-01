@@ -1,8 +1,18 @@
 import "./InquiryContainer.css";
 function InquiryContainer() {
+  const date = new Date();
+  const year = String(date.getFullYear());
+  let first = String(date.getMonth() + 1).split('');
+  if (first.length === 1) {
+    first.unshift('0')
+  }
+  const month = [first].join().replace(/,/g, '');
+  const dateValue = year + '-' + month;
   return (
     <div className="inquiryContainer">
-      <input type="month" name="day" id="day" className="day"/>
+      <input type="month" name="day" id="day" className="day" 
+      defaultValue={dateValue}
+      />
       <table className="inquiryTable">
         <thead className="tableHeader">
           <tr className="thRow">
