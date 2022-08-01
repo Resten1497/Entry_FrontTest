@@ -10,7 +10,9 @@ function InquiryContainer() {
   const dateValue = year + '-' + month;
   return (
     <div className="inquiryContainer">
-      <input type="month" name="day" id="day" className="day" value={dateValue} />
+
+<input type="month" name="day" id="day" className="day" defaultValue={dateValue}/>
+
       <table className="inquiryTable">
         <thead className="tableHeader">
           <tr className="thRow">
