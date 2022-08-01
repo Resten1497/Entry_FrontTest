@@ -1,7 +1,7 @@
 import logo from "../../assets/images/schoolLogo.png";
 // import "./IntroduceContainer.css";
-import NextBtn from '../../components/buttonComponent/index'
-import styled from 'styled-components';
+import NextBtn from "../../components/buttonComponent/index";
+import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 
@@ -9,63 +9,63 @@ function IntroduceContainer() {
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/camera"), [navigate]);
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleLinkOnClick();
     }
   };
   return (
     <Container>
       <div>
-        <Logo src={logo} alt="schoolLogo"/>
+        <Logo src={logo} alt="schoolLogo" />
         <MainText>
-          서울디지텍고등학교에<br />오신것을 환영합니다.
+          서울디지텍고등학교에
+          <br />
+          오신것을 환영합니다.
         </MainText>
         <SubText>신분확인을 위해 몇가지를 작성해주세요!!</SubText>
       </div>
       <div>
-      <StyledNextBtn type="submit" id="NextBtn" autoFocus={true} onClick={handleLinkOnClick} onKeyDown={handleKeyDown}>
-        <NextBtn/>
-      </StyledNextBtn>
+        <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
       </div>
     </Container>
   );
 }
 
 const Container = styled.div`
-    width: 600px;
-    height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 const Logo = styled.img`
-    width: 131px;
-    margin-bottom: 32px;
+  width: 131px;
+  margin-bottom: 32px;
 `;
 
 const MainText = styled.p`
-    font-size: 58px;
-    font-weight: 600;
-    padding-bottom: 18px;
+  font-size: 58px;
+  font-weight: 600;
+  padding-bottom: 18px;
 `;
 
 const SubText = styled.p`
   font-size: 28px;
-    font-weight: 400;
+  font-weight: 400;
 `;
 
 const StyledNextBtn = styled.button`
-    position: relative;
-    top: 100px;
-    left: 450px;
-    border: none;
-    width: 0;
-    height: 0;
-    &:focus{
-        outline: none;
-    }
-`
+  position: relative;
+  top: 100px;
+  left: 450px;
+  border: none;
+  width: 0;
+  height: 0;
+  &:focus {
+    outline: none;
+  }
+`;
 
 export default IntroduceContainer;

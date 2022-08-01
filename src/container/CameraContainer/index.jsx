@@ -7,6 +7,7 @@ const CameraContainer = () => {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
   const handleLinkOnClick = (cardId) => navigate("/regist", { state: cardId });
+
   useEffect(() => {
     console.log(data);
     if (data) {

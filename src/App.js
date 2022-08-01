@@ -9,16 +9,17 @@ import GlobalStyle from "./style/globalStyle";
 function App() {
   return (
     <>
-    <GlobalStyle/>
-     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<IntroduceContainer />} />
-        <Route path="/regist" element={<InputContainer />} />
-        <Route path="/complete" element={<CompleteContainer />} />
-        <Route path="/camera" element={<CameraContainer />} />
-      </Routes>
-    </BrowserRouter>
-    {/* <AdminContainer />
+      <BrowserRouter>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/" element={<IntroduceContainer />} />
+          <Route path="/regist" element={<InputContainer />} />
+          <Route path="/complete" element={<CompleteContainer />} />
+          <Route path="/camera" element={<CameraContainer />} />
+        </Routes>
+      </BrowserRouter>
+
+      {/* <AdminContainer />
     <InquiryContainer/> */}
     </>
   );
