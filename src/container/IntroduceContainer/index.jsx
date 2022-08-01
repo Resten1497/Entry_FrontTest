@@ -1,15 +1,15 @@
 import logo from "../../assets/images/schoolLogo.png";
 // import "./IntroduceContainer.css";
-import Next from "../../assets/images/NextPage.png";
+import NextBtn from '../../components/buttonComponent/index'
+import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
-import styled from 'styled-components';
 
 function IntroduceContainer() {
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/camera"), [navigate]);
   const handleKeyDown = (e) => {
-    if(e.key === 'Enter'){
+    if (e.key === 'Enter') {
       handleLinkOnClick();
     }
   };
@@ -23,10 +23,9 @@ function IntroduceContainer() {
         <SubText>신분확인을 위해 몇가지를 작성해주세요!!</SubText>
       </div>
       <div>
-        <Button type="submit" id="NextBtn" autoFocus onClick={handleLinkOnClick} onKeyDown={handleKeyDown}>
-        <BtnTitle>다음</BtnTitle>
-        <BtnImg src={Next} alt="Next" />
-      </Button>
+      <StyledNextBtn type="submit" id="NextBtn" autoFocus={true} onClick={handleLinkOnClick} onKeyDown={handleKeyDown}>
+        <NextBtn/>
+      </StyledNextBtn>
       </div>
     </Container>
   );
@@ -57,35 +56,16 @@ const SubText = styled.p`
     font-weight: 400;
 `;
 
-const Button =  styled.button`
-  position: relative;
+const StyledNextBtn = styled.button`
+    position: relative;
     top: 100px;
     left: 450px;
     border: none;
-    width: 153px;
-    height: 63px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    background: #5686E1;
-    border-radius: 30px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 28px;
-    &:button:focus{
-      outline: none;
+    width: 0;
+    height: 0;
+    &:focus{
+        outline: none;
     }
-`;
-
-const BtnTitle = styled.span`
-    font-style: normal;
-    font-weight: 500;
-    padding-left: 5px;
-`;
-
-const BtnImg = styled.img`
-   padding: 0 0 0 5px;
-`;
+`
 
 export default IntroduceContainer;

@@ -5,9 +5,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CameraContainer from "./container/CameraContainer";
 // import AdminContainer from './container/AdminContainer';
 // import InquiryContainer from './container/InquiryContainer';
+import GlobalStyle from "./style/globalStyle";
 function App() {
   return (
-    <BrowserRouter>
+    <>
+    <GlobalStyle/>
+     <BrowserRouter>
       <Routes>
         <Route path="/" element={<IntroduceContainer />} />
         <Route path="/regist" element={<InputContainer />} />
@@ -15,8 +18,9 @@ function App() {
         <Route path="/camera" element={<CameraContainer />} />
       </Routes>
     </BrowserRouter>
-    // <AdminContainer />
-    // <InquiryContainer/>
+    {/* <AdminContainer />
+    <InquiryContainer/> */}
+    </>
   );
 }
 
