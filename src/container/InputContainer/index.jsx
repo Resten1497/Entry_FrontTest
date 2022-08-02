@@ -8,7 +8,6 @@ import styled from "styled-components";
 function InputContainer(props) {
   const location = useLocation();
   console.log("state", location.state);
-  const { cardId } = location.state;
   const {
     register,
     handleSubmit,
@@ -26,7 +25,7 @@ function InputContainer(props) {
     handleLinkOnClick();
   };
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.keyCode === "13") {
       handleLinkOnClick();
     }
   };
@@ -147,8 +146,13 @@ function InputContainer(props) {
               "개인정보수집에 동의해주세요"}
           </Error>
         </Lable>
+        <input
+          {...register("cardId")}
+          type="hidden"
+          value={location.state}
+          name="cardId"
+        />
         <NextBtn onClick={null} onKeyDown={handleKeyDown} />
-        <input type="hidden" value={cardId} name="cardId" />
       </Form>
     </Container>
   );
