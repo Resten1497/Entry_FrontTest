@@ -1,130 +1,305 @@
-import "./InquiryContainer.css";
+import styled from 'styled-components';
+import Calendar from '../../assets/images/Calendar.png';
 function InquiryContainer() {
-  const date = new Date();
-  const year = String(date.getFullYear());
-  let first = String(date.getMonth() + 1).split('');
+  const day = new Date();
+  const year = String(day.getFullYear());
+  let first = String(day.getMonth() + 1).split('');
   if (first.length === 1) {
     first.unshift('0')
   }
   const month = [first].join().replace(/,/g, '');
   const dateValue = year + '-' + month;
   return (
-    <div className="inquiryContainer">
+    <Container>
+      <Day type="month" name="day" 
+      defaultValue={dateValue}
+      />
 
-<input type="month" name="day" id="day" className="day" defaultValue={dateValue}/>
+      <HeadTable>
+        <TableHeader>
+          <ThRow>
+            <HeadDataNumber>번호</HeadDataNumber>
+            <HeadDataDate>날짜</HeadDataDate>
+            <HeadDataName>이름</HeadDataName>
+            <HeadDataPhone>전화번호</HeadDataPhone>
+            <HeadDataReason>방문목적</HeadDataReason>
+            <HeadDataInTime>입실시간</HeadDataInTime>
+            <HeadDataOutTime>퇴실시간</HeadDataOutTime>
+          </ThRow>
+        </TableHeader>
+      </HeadTable>
 
-      <table className="inquiryTable">
-        <thead className="tableHeader">
-          <tr className="thRow">
-            <td className="headData number">번호</td>
-            <td className="headData date">날짜</td>
-            <td className="headData name">이름</td>
-            <td className="headData phone">전화번호</td>
-            <td className="headData reason">방문목적</td>
-            <td className="headData inTime">입실시간</td>
-            <td className="headData outTime">퇴실시간</td>
-          </tr>
-        </thead>
-      </table>
-
-      <div className="over">
-        <table className="bodyTable">
-          <tbody className="tableBody">
-            <tr className="tbRow">
-              <td className="data number">1</td>
-              <td className="data date">07/18</td>
-              <td className="data name">홍길동</td>
-              <td className="data phone">010-1234-5678</td>
-              <td className="data reason">강의진행</td>
-              <td className="data inTime">08:12</td>
-              <td className="data outTime">16:30</td>
-            </tr>
-            <tr className="tbRow">
-              <td className="data number">2</td>
-              <td className="data date">07/18</td>
-              <td className="data name">홍길동</td>
-              <td className="data phone">010-1234-5678</td>
-              <td className="data reason">강의진행</td>
-              <td className="data inTime">08:12</td>
-              <td className="data outTime">16:30</td>
-            </tr>
-            <tr className="tbRow">
-              <td className="data number">3</td>
-              <td className="data date">07/18</td>
-              <td className="data name">홍길동</td>
-              <td className="data phone">010-1234-5678</td>
-              <td className="data reason">강의진행</td>
-              <td className="data inTime">08:12</td>
-              <td className="data outTime">16:30</td>
-            </tr>
-            <tr className="tbRow">
-              <td className="data number">4</td>
-              <td className="data date">07/18</td>
-              <td className="data name">홍길동</td>
-              <td className="data phone">010-1234-5678</td>
-              <td className="data reason">강의진행</td>
-              <td className="data inTime">08:12</td>
-              <td className="data outTime">16:30</td>
-            </tr>
-            <tr className="tbRow">
-              <td className="data number">5</td>
-              <td className="data date">07/18</td>
-              <td className="data name">홍길동</td>
-              <td className="data phone">010-1234-5678</td>
-              <td className="data reason">강의진행</td>
-              <td className="data inTime">08:12</td>
-              <td className="data outTime">16:30</td>
-            </tr>
-            <tr className="tbRow">
-              <td className="data number">6</td>
-              <td className="data date">07/18</td>
-              <td className="data name">홍길동</td>
-              <td className="data phone">010-1234-5678</td>
-              <td className="data reason">강의진행</td>
-              <td className="data inTime">08:12</td>
-              <td className="data outTime">16:30</td>
-            </tr>
-            <tr className="tbRow">
-              <td className="data number">7</td>
-              <td className="data date">07/18</td>
-              <td className="data name">홍길동</td>
-              <td className="data phone">010-1234-5678</td>
-              <td className="data reason">강의진행</td>
-              <td className="data inTime">08:12</td>
-              <td className="data outTime">16:30</td>
-            </tr>
-            <tr className="tbRow">
-              <td className="data number">8</td>
-              <td className="data date">07/18</td>
-              <td className="data name">홍길동</td>
-              <td className="data phone">010-1234-5678</td>
-              <td className="data reason">강의진행</td>
-              <td className="data inTime">08:12</td>
-              <td className="data outTime">16:30</td>
-            </tr>
-            <tr className="tbRow">
-              <td className="data number">9</td>
-              <td className="data date">07/18</td>
-              <td className="data name">홍길동</td>
-              <td className="data phone">010-1234-5678</td>
-              <td className="data reason">강의진행</td>
-              <td className="data inTime">08:12</td>
-              <td className="data outTime">16:30</td>
-            </tr>
-            <tr className="tbRow">
-              <td className="data number">10</td>
-              <td className="data date">07/18</td>
-              <td className="data name">홍길동</td>
-              <td className="data phone">010-1234-5678</td>
-              <td className="data reason">강의진행</td>
-              <td className="data inTime">08:12</td>
-              <td className="data outTime">16:30</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+      <Over>
+        <BodyTable>
+          <TableBody>
+            <TbRow>
+              <Number>1</Number>
+              <DateTime>07/18</DateTime>
+              <Name>홍길동</Name>
+              <Phone>010-1234-5678</Phone>
+              <Reason>강의진행</Reason>
+              <InTime>08:12</InTime>
+              <OutTime>16:30</OutTime>
+            </TbRow>
+            <TbRow>
+              <Number>2</Number>
+              <DateTime>07/18</DateTime>
+              <Name>홍길동</Name>
+              <Phone>010-1234-5678</Phone>
+              <Reason>강의진행</Reason>
+              <InTime>08:12</InTime>
+              <OutTime>16:30</OutTime>
+            </TbRow>
+            <TbRow>
+              <Number>3</Number>
+              <DateTime>07/18</DateTime>
+              <Name>홍길동</Name>
+              <Phone>010-1234-5678</Phone>
+              <Reason>강의진행</Reason>
+              <InTime>08:12</InTime>
+              <OutTime>16:30</OutTime>
+            </TbRow>
+            <TbRow>
+              <Number>4</Number>
+              <DateTime>07/18</DateTime>
+              <Name>홍길동</Name>
+              <Phone>010-1234-5678</Phone>
+              <Reason>강의진행</Reason>
+              <InTime>08:12</InTime>
+              <OutTime>16:30</OutTime>
+            </TbRow>
+            <TbRow>
+              <Number>5</Number>
+              <DateTime>07/18</DateTime>
+              <Name>홍길동</Name>
+              <Phone>010-1234-5678</Phone>
+              <Reason>강의진행</Reason>
+              <InTime>08:12</InTime>
+              <OutTime>16:30</OutTime>
+            </TbRow>
+            <TbRow>
+              <Number>6</Number>
+              <DateTime>07/18</DateTime>
+              <Name>홍길동</Name>
+              <Phone>010-1234-5678</Phone>
+              <Reason>강의진행</Reason>
+              <InTime>08:12</InTime>
+              <OutTime>16:30</OutTime>
+            </TbRow>
+            <TbRow>
+              <Number>7</Number>
+              <DateTime>07/18</DateTime>
+              <Name>홍길동</Name>
+              <Phone>010-1234-5678</Phone>
+              <Reason>강의진행</Reason>
+              <InTime>08:12</InTime>
+              <OutTime>16:30</OutTime>
+            </TbRow>
+            <TbRow>
+              <Number>8</Number>
+              <DateTime>07/18</DateTime>
+              <Name>홍길동</Name>
+              <Phone>010-1234-5678</Phone>
+              <Reason>강의진행</Reason>
+              <InTime>08:12</InTime>
+              <OutTime>16:30</OutTime>
+            </TbRow>
+            <TbRow>
+              <Number>9</Number>
+              <DateTime>07/18</DateTime>
+              <Name>홍길동</Name>
+              <Phone>010-1234-5678</Phone>
+              <Reason>강의진행</Reason>
+              <InTime>08:12</InTime>
+              <OutTime>16:30</OutTime>
+            </TbRow>
+            <TbRow>
+              <Number>10</Number>
+              <DateTime>07/18</DateTime>
+              <Name>홍길동</Name>
+              <Phone>010-1234-5678</Phone>
+              <Reason>강의진행</Reason>
+              <InTime>08:12</InTime>
+              <OutTime>16:30</OutTime>
+            </TbRow>
+          
+          </TableBody>
+        </BodyTable>
+      </Over>
+    </Container>
   );
 }
+
+const Container = styled.div`
+    width: 1440px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+`;
+
+const Day = styled.input`
+    margin-bottom: 50px;
+    width: 400px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 58px;
+    border: none;
+    &:focus{
+      outline: none;
+    }
+    &::-webkit-calendar-picker-indicator {
+      background: url(${Calendar});
+    }
+`;
+
+const HeadTable = styled.table`
+    width: 1440px;
+    height: 60px;
+    border-collapse: collapse;
+`;
+
+const TableHeader = styled.thead`
+    width: 1440px;
+    height: 60px;
+    background: #F3F3F3;
+`;
+
+const ThRow = styled.tr`
+    height: 60px;
+    border: none;
+    text-align: center;
+`;
+
+const HeadDataNumber = styled.td`
+    width: 150px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+`;
+
+const HeadDataDate = styled.td`
+    width: 200px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+`;
+
+const HeadDataName =styled.td`
+    width: 200px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+`;
+
+const HeadDataPhone = styled.td`
+    width: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+`;
+
+const HeadDataReason = styled.td`
+    width: 200px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+`;
+
+const HeadDataInTime = styled.td`
+    width: 200px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+`;
+
+const HeadDataOutTime = styled.td`
+    width: 200px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+`;
+
+const Over = styled.div`
+    width: 1440px;
+    height: 480px;
+    overflow-y: scroll;
+`;
+
+const BodyTable = styled.table`
+    width: 1440px;
+    height: 480px;
+`;
+
+const TableBody = styled.tbody`
+    width: 1440px;
+    height: 480px;
+`;
+
+const TbRow = styled.tr`
+    height: 60px;
+    border: none;
+    text-align: center;
+`;
+
+const Number = styled.td`
+    width: 150px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+`;
+
+const DateTime = styled.td`
+    width: 200px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+`;
+const Name = styled.td`
+      width: 200px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+`;
+const Phone = styled.td`
+    width: auto;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+`;
+const Reason = styled.td`
+    width: 200px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+`;
+const InTime = styled.td`
+    width: 200px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+`;
+const OutTime = styled.td`
+    width: 200px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+`;
 
 export default InquiryContainer;

@@ -1,4 +1,3 @@
-// import "./AdminContainer.css";
 import logo from "../../assets/images/schoolLogo.png";
 import styled from 'styled-components';
 function AdminContainer() {
