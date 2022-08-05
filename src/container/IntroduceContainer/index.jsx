@@ -32,7 +32,7 @@ function IntroduceContainer() {
 
 const Container = styled.div`
   width: 600px;
-  height: 100vh;
+  height: 80vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
