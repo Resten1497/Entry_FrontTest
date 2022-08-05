@@ -160,7 +160,7 @@ function InputContainer(props) {
 
 const Container = styled.div`
   width: 600px;
-  height: 100vh;
+  height: 110vh;
   margin: 0 auto;
   position: relative;
 `;
