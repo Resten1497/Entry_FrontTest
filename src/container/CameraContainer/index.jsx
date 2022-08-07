@@ -15,6 +15,7 @@ const CameraContainer = () => {
       onSuccess: (data) => {
         console.log(data);
         handleLinkOnClick(cardId);
+        ref.current.stopCamera();
       },
     }
   );
@@ -30,7 +31,7 @@ const CameraContainer = () => {
       <Wrap>
         <QrReader
           ref={ref}
-          delay={10000}
+          delay={1000}
           facingMode={"user"}
           onScan={(result) => {
             if (result) {
