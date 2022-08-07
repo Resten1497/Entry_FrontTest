@@ -1,38 +1,46 @@
-import React, { useState, useEffect} from "react";
+import React, { useState } from "react";
 import { QrReader } from "react-qr-reader";
 import { useNavigate } from "react-router-dom";
-import styled from 'styled-components';
+import styled from "styled-components";
+import { useMutation } from "@tanstack/react-query";
+import sendCardData from "../../api/sendCardData";
 const CameraContainer = () => {
-  const [data, setData] = useState(null);
+  const [cardId, setCardId] = useState(null);
   const navigate = useNavigate();
   const handleLinkOnClick = (cardId) => navigate("/regist", { state: cardId });
 
-  useEffect(() => {
-    console.log(data);
-    if (data) {
-      handleLinkOnClick(data);
+  const { mutate, isLoading, isError, error, isSuccess } = useMutation(
+    sendCardData,
+    {
+      onSuccess: () => {
+        handleLinkOnClick(cardId);
+      },
+      onError: (error) => {
+        console.log(error);
+      },
     }
-  }, [data]);
+  );
+
   return (
     <>
       <Wrap>
         <QrReader
-          scanDelay={1000}
+          scanDelay={2000}
           constraints={{
             facingMode: "user",
           }}
           onResult={(result) => {
             if (result) {
-              var url = Object.keys(result).map((v2) => {
+              var cardId = Object.keys(result).map((v2) => {
                 if (v2 === "text") return result[v2];
               });
-              setData(url[0]);
+              setCardId(cardId[0]);
+              mutate({ cardId: cardId[0] });
             }
           }}
         />
         <Title>QR 코드를 화면에 보여주세요</Title>
       </Wrap>
-      
     </>
   );
 };
