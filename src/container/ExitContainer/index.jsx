@@ -35,8 +35,8 @@ const ExitContainer = () => {
           facingMode={"user"}
           onScan={(result) => {
             if (result) {
-              console.log(result);
-              //setCardId(result);
+              //console.log(result);
+              setCardId(result);
             }
           }}
           onError={(err) => console.log(err)}
