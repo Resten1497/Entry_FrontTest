@@ -1,39 +1,47 @@
-import React, { useState, useEffect } from "react";
-import { QrReader } from "react-qr-reader";
+import React, { useState, useEffect, useRef } from "react";
+import QrReader from "react-qr-reader";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { sendExitData } from "../../api/sendExitData";
+import { useMutation } from "@tanstack/react-query";
+import sendExitData from "../../api/sendExitData";
 const ExitContainer = () => {
-  const [data, setData] = useState(null);
+  const [cardId, setCardId] = useState(null);
   const navigate = useNavigate();
-  const handleLinkOnClick = () => navigate("/complete");
-
-  useEffect(() => {
-    console.log(data);
-    if (data) {
-      sendExitData(data);
-
-      //handleLinkOnClick(data);
+  const handleLinkOnClick = () => navigate("/exitcomplete");
+  let ref = useRef();
+  const { mutate, isLoading, isError, error, isSuccess } = useMutation(
+    sendExitData,
+    {
+      onSuccess: () => {
+        console.log("success");
+        handleLinkOnClick();
+      },
     }
-  }, [data]);
+  );
+  useEffect(() => {
+    if (cardId) {
+      mutate({ cardId: cardId });
+      setCardId(null);
+    }
+  }, [cardId]);
+
   return (
     <>
       <Wrap>
         <QrReader
-          scanDelay={1000}
-          constraints={{
-            facingMode: "user",
-          }}
-          onResult={(result) => {
+          ref={ref}
+          delay={10000}
+          facingMode={"user"}
+          onScan={(result) => {
             if (result) {
-              var url = Object.keys(result).map((v2) => {
-                if (v2 === "text") return result[v2];
-              });
-              setData(url[0]);
+              setCardId(result);
             }
           }}
+          onError={(err) => console.log(err)}
         />
         <Title>QR 코드를 화면에 보여주세요</Title>
+        {isLoading ? <WarinningText>요청중</WarinningText> : null}
+        {isError ? <WarinningText>잘못된 QR코드입니다.</WarinningText> : null}
       </Wrap>
     </>
   );
@@ -48,6 +56,13 @@ const Wrap = styled.div`
 const Title = styled.p`
   font-size: 24px;
   font-weight: 600;
+  text-align: center;
+`;
+const WarinningText = styled.p`
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 10px;
+  color: red;
   text-align: center;
 `;
 export default ExitContainer;
