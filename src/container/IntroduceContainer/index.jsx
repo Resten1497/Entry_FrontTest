@@ -33,19 +33,12 @@ function IntroduceContainer() {
 }
 
 const Container = styled.div`
-<<<<<<< HEAD
   width: 500px;
   height: 100vh;
-=======
-  width: 600px;
-  height: 80vh;
->>>>>>> 9983faea4b2b31772e3340f98e572708b47108dd
   margin: 0 auto;
 `;
 
 const Content = styled.div`
-
-  border: 1px solid #000;
   width: 100%;
   height: 100%;
   display: flex;
@@ -74,6 +67,6 @@ const Btn = styled.div`
   margin: 50px 0 50px 0;
   position: relative;
   left: 125px;
-`
+`;
 
 export default IntroduceContainer;

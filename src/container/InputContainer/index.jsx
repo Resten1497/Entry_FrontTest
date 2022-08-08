@@ -31,6 +31,7 @@ function InputContainer() {
   };
   return (
     <Container>
+      <Content>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Lable>
           <Title>이름</Title>
@@ -146,27 +147,38 @@ function InputContainer() {
               "개인정보수집에 동의해주세요"}
           </Error>
         </Lable>
-        <NextBtn onClick={null} onKeyDown={handleKeyDown} />
+        <Btn>
+           <NextBtn onClick={null} onKeyDown={handleKeyDown} />
+        </Btn>
         <input type="hidden" value={cardId} name="cardId" />
       </Form>
+      </Content>
     </Container>
   );
 }
 
 const Container = styled.div`
   width: 600px;
+  /* height: 110vh; */
   height: 1000px;
+  border: 1px solid #000;
   margin: 0 auto;
   position: relative;
 `;
 
+const Content = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Form = styled.form`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Lable = styled.label`
@@ -212,20 +224,25 @@ const CheckBox = styled.input`
 `;
 
 const PrivacyLabal = styled.div`
+  position: relative;
+  right: 70px;
   margin-top: 33px;
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
 const Privacy = styled.p`
-  position: relative;
-  bottom: 5px;
-  display: inline-block;
   font-style: normal;
   font-weight: 400;
   height: 26px;
   font-size: 20px;
+`;
+
+const Btn = styled.div`
+  margin: 0 50px 50px 0;
+  position: relative;
+  left: 220px;
 `;
 
 const Error = styled.p`
