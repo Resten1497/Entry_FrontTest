@@ -24,9 +24,6 @@ const NextBtn = styled.button`
   font-style: normal;
   font-weight: 500;
   font-size: 28px;
-  position: relative;
-  top: 100px;
-  left: 450px;
   &:focus {
     outline: none;
   }

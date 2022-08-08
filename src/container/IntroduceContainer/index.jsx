@@ -8,35 +8,45 @@ function IntroduceContainer() {
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/camera"), [navigate]);
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.keyCode === "13") {
       handleLinkOnClick();
     }
   };
   return (
     <Container>
-      <div>
-        <Logo src={logo} alt="schoolLogo" />
-        <MainText>
-          서울디지텍고등학교에
-          <br />
-          오신것을 환영합니다.
-        </MainText>
-        <SubText>신분확인을 위해 몇가지를 작성해주세요!!</SubText>
-      </div>
-      <div>
-        <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
-      </div>
+        <Content>
+        <div>
+          <Logo src={logo} alt="schoolLogo" />
+          <MainText>
+            서울디지텍고등학교에
+            <br />
+            오신것을 환영합니다.
+          </MainText>
+          <SubText>신분확인을 위해 몇가지를 작성해주세요!!</SubText>
+        </div>
+        <Btn>
+          <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
+        </Btn>
+      </Content>
     </Container>
   );
 }
 
 const Container = styled.div`
-  width: 600px;
+  width: 500px;
   height: 100vh;
   margin: 0 auto;
+`;
+
+const Content = styled.div`
+
+  border: 1px solid #000;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
 `;
 
 const Logo = styled.img`
@@ -44,15 +54,21 @@ const Logo = styled.img`
   margin-bottom: 32px;
 `;
 
-const MainText = styled.p`
-  font-size: 58px;
+const MainText = styled.h1`
+  font-size: 3em;
   font-weight: 600;
   padding-bottom: 18px;
 `;
 
 const SubText = styled.p`
-  font-size: 28px;
+  font-size: 1.4em;
   font-weight: 400;
 `;
+
+const Btn = styled.div`
+  margin: 50px 0 50px 0;
+  position: relative;
+  left: 125px;
+`
 
 export default IntroduceContainer;

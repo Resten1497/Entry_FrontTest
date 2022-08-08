@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import sendVisitorData from "../../api/sendVisitorData";
 import styled from "styled-components";
 
-function InputContainer(props) {
+function InputContainer() {
   const location = useLocation();
   console.log("state", location.state);
   const { cardId } = location.state;
@@ -26,7 +26,7 @@ function InputContainer(props) {
     handleLinkOnClick();
   };
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.keyCode === "13") {
       handleLinkOnClick();
     }
   };
