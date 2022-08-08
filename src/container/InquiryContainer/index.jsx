@@ -11,133 +11,138 @@ function InquiryContainer() {
   const dateValue = year + '-' + month;
   return (
     <Container>
-      <Day type="month" name="day" 
-      defaultValue={dateValue}
-      />
-
+      <Content>
+      <Day type="month" name="day" defaultValue={dateValue} />
       <HeadTable>
-        <TableHeader>
-          <ThRow>
-            <HeadDataNumber>번호</HeadDataNumber>
-            <HeadDataDate>날짜</HeadDataDate>
-            <HeadDataName>이름</HeadDataName>
-            <HeadDataPhone>전화번호</HeadDataPhone>
-            <HeadDataReason>방문목적</HeadDataReason>
-            <HeadDataInTime>입실시간</HeadDataInTime>
-            <HeadDataOutTime>퇴실시간</HeadDataOutTime>
-          </ThRow>
-        </TableHeader>
-      </HeadTable>
+          <TableHeader>
+            <ThRow>
+              <HeadDataNumber>번호</HeadDataNumber>
+              <HeadDataDate>날짜</HeadDataDate>
+              <HeadDataName>이름</HeadDataName>
+              <HeadDataPhone>전화번호</HeadDataPhone>
+              <HeadDataReason>방문목적</HeadDataReason>
+              <HeadDataInTime>입실시간</HeadDataInTime>
+              <HeadDataOutTime>퇴실시간</HeadDataOutTime>
+            </ThRow>
+          </TableHeader>
+        </HeadTable>
 
-      <Over>
-        <BodyTable>
-          <TableBody>
-            <TbRow>
-              <Number>1</Number>
-              <DateTime>07/18</DateTime>
-              <Name>홍길동</Name>
-              <Phone>010-1234-5678</Phone>
-              <Reason>강의진행</Reason>
-              <InTime>08:12</InTime>
-              <OutTime>16:30</OutTime>
-            </TbRow>
-            <TbRow>
-              <Number>2</Number>
-              <DateTime>07/18</DateTime>
-              <Name>홍길동</Name>
-              <Phone>010-1234-5678</Phone>
-              <Reason>강의진행</Reason>
-              <InTime>08:12</InTime>
-              <OutTime>16:30</OutTime>
-            </TbRow>
-            <TbRow>
-              <Number>3</Number>
-              <DateTime>07/18</DateTime>
-              <Name>홍길동</Name>
-              <Phone>010-1234-5678</Phone>
-              <Reason>강의진행</Reason>
-              <InTime>08:12</InTime>
-              <OutTime>16:30</OutTime>
-            </TbRow>
-            <TbRow>
-              <Number>4</Number>
-              <DateTime>07/18</DateTime>
-              <Name>홍길동</Name>
-              <Phone>010-1234-5678</Phone>
-              <Reason>강의진행</Reason>
-              <InTime>08:12</InTime>
-              <OutTime>16:30</OutTime>
-            </TbRow>
-            <TbRow>
-              <Number>5</Number>
-              <DateTime>07/18</DateTime>
-              <Name>홍길동</Name>
-              <Phone>010-1234-5678</Phone>
-              <Reason>강의진행</Reason>
-              <InTime>08:12</InTime>
-              <OutTime>16:30</OutTime>
-            </TbRow>
-            <TbRow>
-              <Number>6</Number>
-              <DateTime>07/18</DateTime>
-              <Name>홍길동</Name>
-              <Phone>010-1234-5678</Phone>
-              <Reason>강의진행</Reason>
-              <InTime>08:12</InTime>
-              <OutTime>16:30</OutTime>
-            </TbRow>
-            <TbRow>
-              <Number>7</Number>
-              <DateTime>07/18</DateTime>
-              <Name>홍길동</Name>
-              <Phone>010-1234-5678</Phone>
-              <Reason>강의진행</Reason>
-              <InTime>08:12</InTime>
-              <OutTime>16:30</OutTime>
-            </TbRow>
-            <TbRow>
-              <Number>8</Number>
-              <DateTime>07/18</DateTime>
-              <Name>홍길동</Name>
-              <Phone>010-1234-5678</Phone>
-              <Reason>강의진행</Reason>
-              <InTime>08:12</InTime>
-              <OutTime>16:30</OutTime>
-            </TbRow>
-            <TbRow>
-              <Number>9</Number>
-              <DateTime>07/18</DateTime>
-              <Name>홍길동</Name>
-              <Phone>010-1234-5678</Phone>
-              <Reason>강의진행</Reason>
-              <InTime>08:12</InTime>
-              <OutTime>16:30</OutTime>
-            </TbRow>
-            <TbRow>
-              <Number>10</Number>
-              <DateTime>07/18</DateTime>
-              <Name>홍길동</Name>
-              <Phone>010-1234-5678</Phone>
-              <Reason>강의진행</Reason>
-              <InTime>08:12</InTime>
-              <OutTime>16:30</OutTime>
-            </TbRow>
-          
-          </TableBody>
-        </BodyTable>
-      </Over>
+        <Over>
+          <BodyTable>
+            <TableBody>
+              <TbRow>
+                <Number>1</Number>
+                <DateTime>07/18</DateTime>
+                <Name>홍길동</Name>
+                <Phone>010-1234-5678</Phone>
+                <Reason>강의진행</Reason>
+                <InTime>08:12</InTime>
+                <OutTime>16:30</OutTime>
+              </TbRow>
+              <TbRow>
+                <Number>2</Number>
+                <DateTime>07/18</DateTime>
+                <Name>홍길동</Name>
+                <Phone>010-1234-5678</Phone>
+                <Reason>강의진행</Reason>
+                <InTime>08:12</InTime>
+                <OutTime>16:30</OutTime>
+              </TbRow>
+              <TbRow>
+                <Number>3</Number>
+                <DateTime>07/18</DateTime>
+                <Name>홍길동</Name>
+                <Phone>010-1234-5678</Phone>
+                <Reason>강의진행</Reason>
+                <InTime>08:12</InTime>
+                <OutTime>16:30</OutTime>
+              </TbRow>
+              <TbRow>
+                <Number>4</Number>
+                <DateTime>07/18</DateTime>
+                <Name>홍길동</Name>
+                <Phone>010-1234-5678</Phone>
+                <Reason>강의진행</Reason>
+                <InTime>08:12</InTime>
+                <OutTime>16:30</OutTime>
+              </TbRow>
+              <TbRow>
+                <Number>5</Number>
+                <DateTime>07/18</DateTime>
+                <Name>홍길동</Name>
+                <Phone>010-1234-5678</Phone>
+                <Reason>강의진행</Reason>
+                <InTime>08:12</InTime>
+                <OutTime>16:30</OutTime>
+              </TbRow>
+              <TbRow>
+                <Number>6</Number>
+                <DateTime>07/18</DateTime>
+                <Name>홍길동</Name>
+                <Phone>010-1234-5678</Phone>
+                <Reason>강의진행</Reason>
+                <InTime>08:12</InTime>
+                <OutTime>16:30</OutTime>
+              </TbRow>
+              <TbRow>
+                <Number>7</Number>
+                <DateTime>07/18</DateTime>
+                <Name>홍길동</Name>
+                <Phone>010-1234-5678</Phone>
+                <Reason>강의진행</Reason>
+                <InTime>08:12</InTime>
+                <OutTime>16:30</OutTime>
+              </TbRow>
+              <TbRow>
+                <Number>8</Number>
+                <DateTime>07/18</DateTime>
+                <Name>홍길동</Name>
+                <Phone>010-1234-5678</Phone>
+                <Reason>강의진행</Reason>
+                <InTime>08:12</InTime>
+                <OutTime>16:30</OutTime>
+              </TbRow>
+              <TbRow>
+                <Number>9</Number>
+                <DateTime>07/18</DateTime>
+                <Name>홍길동</Name>
+                <Phone>010-1234-5678</Phone>
+                <Reason>강의진행</Reason>
+                <InTime>08:12</InTime>
+                <OutTime>16:30</OutTime>
+              </TbRow>
+              <TbRow>
+                <Number>10</Number>
+                <DateTime>07/18</DateTime>
+                <Name>홍길동</Name>
+                <Phone>010-1234-5678</Phone>
+                <Reason>강의진행</Reason>
+                <InTime>08:12</InTime>
+                <OutTime>16:30</OutTime>
+              </TbRow>
+            
+            </TableBody>
+          </BodyTable>
+        </Over>
+      </Content>
     </Container>
   );
 }
 
 const Container = styled.div`
-    width: 1440px;
-    height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+  width: 1400px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 `;
 
 const Day = styled.input`
@@ -145,7 +150,7 @@ const Day = styled.input`
     width: 400px;
     font-style: normal;
     font-weight: 700;
-    font-size: 58px;
+    font-size: 3.5rem;
     border: none;
     &:focus{
       outline: none;
@@ -156,13 +161,13 @@ const Day = styled.input`
 `;
 
 const HeadTable = styled.table`
-    width: 1440px;
+    width: 1400px;
     height: 60px;
     border-collapse: collapse;
 `;
 
 const TableHeader = styled.thead`
-    width: 1440px;
+    width: 1400px;
     height: 60px;
     background: #F3F3F3;
 `;
@@ -230,13 +235,25 @@ const HeadDataOutTime = styled.td`
 `;
 
 const Over = styled.div`
-    width: 1440px;
+    width: 1400px;
     height: 480px;
+    overflow-x: hidden;
     overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 4px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  &::-webkit-scrollbar-track {
+    background-color: initial;
+  }
 `;
 
 const BodyTable = styled.table`
-    width: 1440px;
+    width: 1400px;
     height: 480px;
 `;
 
