@@ -161,7 +161,6 @@ const Container = styled.div`
   width: 600px;
   /* height: 110vh; */
   height: 1000px;
-  border: 1px solid #000;
   margin: 0 auto;
   position: relative;
 `;

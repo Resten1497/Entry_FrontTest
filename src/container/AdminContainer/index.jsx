@@ -21,7 +21,6 @@ function AdminContainer() {
 }
 
 const Container = styled.div`
-border: 1px solid #000;
     width: 500px;
     height: 100vh;
     margin: 0 auto;
