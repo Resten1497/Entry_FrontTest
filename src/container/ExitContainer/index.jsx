@@ -1,20 +1,20 @@
-import React, { useEffect, useMemo, useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import QrReader from "react-qr-reader";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useMutation } from "@tanstack/react-query";
-import sendCardData from "../../api/sendCardData";
-const CameraContainer = () => {
+import sendExitData from "../../api/sendExitData";
+const ExitContainer = () => {
   const [cardId, setCardId] = useState(null);
   const navigate = useNavigate();
-  const handleLinkOnClick = (cardId) => navigate("/regist", { state: cardId });
+  const handleLinkOnClick = () => navigate("/exitcomplete");
   let ref = useRef();
   const { mutate, isLoading, isError, error, isSuccess } = useMutation(
-    sendCardData,
+    sendExitData,
     {
-      onSuccess: (data) => {
-        console.log(data);
-        handleLinkOnClick(cardId);
+      onSuccess: () => {
+        console.log("success");
+        handleLinkOnClick();
         ref.current.stopCamera();
       },
     }
@@ -35,15 +35,15 @@ const CameraContainer = () => {
           facingMode={"user"}
           onScan={(result) => {
             if (result) {
+              //console.log(result);
               setCardId(result);
             }
           }}
-          className="QrReader"
           onError={(err) => console.log(err)}
         />
         <Title>QR 코드를 화면에 보여주세요</Title>
         {isLoading ? <WarinningText>요청중</WarinningText> : null}
-        {isError ? <WarinningText>잘못된 QR코드입니다.</WarinningText> : null}
+        {isError ? <WarinningText>오류가 발생했습니다.</WarinningText> : null}
       </Wrap>
     </>
   );
@@ -69,4 +69,4 @@ const WarinningText = styled.p`
   color: red;
   text-align: center;
 `;
-export default CameraContainer;
+export default ExitContainer;

@@ -21,7 +21,6 @@ function InputContainer() {
   );
 
   const onSubmit = (data) => {
-    console.log(data);
     sendVisitorData(data);
     handleLinkOnClick();
   };
@@ -156,7 +155,7 @@ function InputContainer() {
 
 const Container = styled.div`
   width: 600px;
-  height: 100vh;
+  height: 1000px;
   margin: 0 auto;
   position: relative;
 `;

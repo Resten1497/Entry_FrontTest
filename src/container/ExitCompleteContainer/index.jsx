@@ -1,14 +1,14 @@
 import Animation from "../../components/animation";
 import styled from "styled-components";
 
-function CompleteContainer() {
+function ExitCompleteContainer() {
   return (
     <Container>
       <Animation />
       <Title>
-        입장 절차가 완료되었습니다!
+        퇴실 절차가 완료되었습니다!
         <br />
-        퇴실할때 QR코드를 다시 찍어주세요!
+        안녕히가세요 !
       </Title>
     </Container>
   );
@@ -31,4 +31,4 @@ const Title = styled.p`
   color: #52525c;
 `;
 
-export default CompleteContainer;
+export default ExitCompleteContainer;

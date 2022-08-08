@@ -33,8 +33,13 @@ function IntroduceContainer() {
 }
 
 const Container = styled.div`
+<<<<<<< HEAD
   width: 500px;
   height: 100vh;
+=======
+  width: 600px;
+  height: 80vh;
+>>>>>>> 9983faea4b2b31772e3340f98e572708b47108dd
   margin: 0 auto;
 `;
 
