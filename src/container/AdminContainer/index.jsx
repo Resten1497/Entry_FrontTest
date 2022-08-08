@@ -3,29 +3,42 @@ import styled from 'styled-components';
 function AdminContainer() {
   return (
     <Container>
-      <div>
-        <Logo src={logo} alt="Logo" />
-        <Title>관리자 페이지</Title>
-      </div>
-      <Form>
-        <label>
-          <PswTitle>비밀번호</PswTitle>
-          <Password type="password" name="password" placeholder="비밀번호를 입력해주세요" autoComplete="off" />
-        </label>
-        <NextBtn><BtnTitie>다음</BtnTitie></NextBtn>
-      </Form>
+      <Content>
+        <div>
+          <Logo src={logo} alt="Logo" />
+          <Title>관리자 페이지</Title>
+        </div>
+        <Form>
+          <label>
+            <PswTitle>비밀번호</PswTitle>
+            <Password type="password" name="password" placeholder="비밀번호를 입력해주세요" autoComplete="off" />
+          </label>
+          <NextBtn><BtnTitie>다음</BtnTitie></NextBtn>
+        </Form>
+      </Content>
     </Container>
   );
 }
 
 const Container = styled.div`
-    width: 400px;
+border: 1px solid #000;
+    width: 500px;
     height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Content = styled.div`
+  margin: 0 auto;
+  width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
 `;
 
 const Form = styled.form`
@@ -41,7 +54,7 @@ const Logo = styled.img`
 
 const Title = styled.h1`
     font-weight: 700;
-    font-size: 58px;
+    font-size: 4rem;
     color: #000000;
 `;
 
@@ -49,7 +62,7 @@ const PswTitle = styled.p`
     padding-bottom: 16px;
     font-style: normal;
     font-weight: 400;
-    font-size: 26px;
+    font-size: 1.5rem;
     color: #52525C;
 `;
 
