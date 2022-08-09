@@ -39,6 +39,7 @@ const ExitContainer = () => {
               setCardId(result);
             }
           }}
+          className="QrReader"
           onError={(err) => console.log(err)}
         />
         <Title>QR 코드를 화면에 보여주세요</Title>
@@ -52,8 +53,11 @@ const ExitContainer = () => {
 const Wrap = styled.div`
   margin: 0 auto;
   margin-top: 20px;
-  width: 50vw;
-  height: 50vh;
+  width: 40vw;
+  height: 40vh;
+  & .QrReader > section > div {
+    display: none;
+  }
 `;
 
 const Title = styled.p`
