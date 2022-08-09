@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useMutation } from "@tanstack/react-query";
 import sendCardData from "../../api/sendCardData";
+
 const CameraContainer = () => {
   const [cardId, setCardId] = useState(null);
   const navigate = useNavigate();
@@ -48,12 +49,19 @@ const CameraContainer = () => {
     </>
   );
 };
-
+const StyledParent = styled.div`
+  & .your-class-name {
+    border-color: red;
+  }
+`;
 const Wrap = styled.div`
   margin: 0 auto;
   margin-top: 20px;
-  width: 50vw;
-  height: 50vh;
+  width: 40vw;
+  height: 40vh;
+  & .QrReader > section > div {
+    display: none;
+  }
 `;
 
 const Title = styled.p`
