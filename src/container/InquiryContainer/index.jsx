@@ -22,7 +22,8 @@ function InquiryContainer() {
       <Content>
       <Day type="month" name="day" defaultValue={dateValue} />
       <HeadTable>
-            <ThRow>
+        <thead>
+          <ThRow>
               <HeadDataNumber>번호</HeadDataNumber>
               <HeadDataDate>날짜</HeadDataDate>
               <HeadDataName>이름</HeadDataName>
@@ -31,10 +32,13 @@ function InquiryContainer() {
               <HeadDataInTime>입실시간</HeadDataInTime>
               <HeadDataOutTime>퇴실시간</HeadDataOutTime>
             </ThRow>
+        </thead>
         </HeadTable>
         <Over>
           <BodyTable>
-                <GetData />
+            <tbody>
+              <GetData />
+            </tbody>
           </BodyTable>
         </Over>
       </Content>
@@ -195,6 +199,7 @@ const Over = styled.div`
 const BodyTable = styled.table`
     width: 1400px;
     height: 480px;
+    border-collapse: collapse;
 `;
 
 const TbRow = styled.tr`
@@ -230,7 +235,7 @@ const Name = styled.td`
     font-size: 25px;
 `;
 const Phone = styled.td`
-    width: auto;
+    width: 250px;
     line-height: 30px;
     text-align: center;
     font-style: normal;
