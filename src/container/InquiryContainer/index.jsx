@@ -1,5 +1,13 @@
+import {
+  QueryClientProvider,
+  QueryClient,
+  useQuery,
+} from "@tanstack/react-query";
+import React from "react";
+import axios from "axios";
 import styled from 'styled-components';
 import Calendar from '../../assets/images/Calendar.png';
+
 function InquiryContainer() {
   const day = new Date();
   const year = String(day.getFullYear());
@@ -14,7 +22,6 @@ function InquiryContainer() {
       <Content>
       <Day type="month" name="day" defaultValue={dateValue} />
       <HeadTable>
-          <TableHeader>
             <ThRow>
               <HeadDataNumber>번호</HeadDataNumber>
               <HeadDataDate>날짜</HeadDataDate>
@@ -24,110 +31,50 @@ function InquiryContainer() {
               <HeadDataInTime>입실시간</HeadDataInTime>
               <HeadDataOutTime>퇴실시간</HeadDataOutTime>
             </ThRow>
-          </TableHeader>
         </HeadTable>
-
         <Over>
           <BodyTable>
-            <TableBody>
-              <TbRow>
-                <Number>1</Number>
-                <DateTime>07/18</DateTime>
-                <Name>홍길동</Name>
-                <Phone>010-1234-5678</Phone>
-                <Reason>강의진행</Reason>
-                <InTime>08:12</InTime>
-                <OutTime>16:30</OutTime>
-              </TbRow>
-              <TbRow>
-                <Number>2</Number>
-                <DateTime>07/18</DateTime>
-                <Name>홍길동</Name>
-                <Phone>010-1234-5678</Phone>
-                <Reason>강의진행</Reason>
-                <InTime>08:12</InTime>
-                <OutTime>16:30</OutTime>
-              </TbRow>
-              <TbRow>
-                <Number>3</Number>
-                <DateTime>07/18</DateTime>
-                <Name>홍길동</Name>
-                <Phone>010-1234-5678</Phone>
-                <Reason>강의진행</Reason>
-                <InTime>08:12</InTime>
-                <OutTime>16:30</OutTime>
-              </TbRow>
-              <TbRow>
-                <Number>4</Number>
-                <DateTime>07/18</DateTime>
-                <Name>홍길동</Name>
-                <Phone>010-1234-5678</Phone>
-                <Reason>강의진행</Reason>
-                <InTime>08:12</InTime>
-                <OutTime>16:30</OutTime>
-              </TbRow>
-              <TbRow>
-                <Number>5</Number>
-                <DateTime>07/18</DateTime>
-                <Name>홍길동</Name>
-                <Phone>010-1234-5678</Phone>
-                <Reason>강의진행</Reason>
-                <InTime>08:12</InTime>
-                <OutTime>16:30</OutTime>
-              </TbRow>
-              <TbRow>
-                <Number>6</Number>
-                <DateTime>07/18</DateTime>
-                <Name>홍길동</Name>
-                <Phone>010-1234-5678</Phone>
-                <Reason>강의진행</Reason>
-                <InTime>08:12</InTime>
-                <OutTime>16:30</OutTime>
-              </TbRow>
-              <TbRow>
-                <Number>7</Number>
-                <DateTime>07/18</DateTime>
-                <Name>홍길동</Name>
-                <Phone>010-1234-5678</Phone>
-                <Reason>강의진행</Reason>
-                <InTime>08:12</InTime>
-                <OutTime>16:30</OutTime>
-              </TbRow>
-              <TbRow>
-                <Number>8</Number>
-                <DateTime>07/18</DateTime>
-                <Name>홍길동</Name>
-                <Phone>010-1234-5678</Phone>
-                <Reason>강의진행</Reason>
-                <InTime>08:12</InTime>
-                <OutTime>16:30</OutTime>
-              </TbRow>
-              <TbRow>
-                <Number>9</Number>
-                <DateTime>07/18</DateTime>
-                <Name>홍길동</Name>
-                <Phone>010-1234-5678</Phone>
-                <Reason>강의진행</Reason>
-                <InTime>08:12</InTime>
-                <OutTime>16:30</OutTime>
-              </TbRow>
-              <TbRow>
-                <Number>10</Number>
-                <DateTime>07/18</DateTime>
-                <Name>홍길동</Name>
-                <Phone>010-1234-5678</Phone>
-                <Reason>강의진행</Reason>
-                <InTime>08:12</InTime>
-                <OutTime>16:30</OutTime>
-              </TbRow>
-            
-            </TableBody>
+                <GetData />
           </BodyTable>
         </Over>
       </Content>
     </Container>
   );
 }
+
+function GetData() {
+  const { isLoading, error, data, isSuccess } = useQuery(["data"], async () => {
+    const { data } = await axios.post("https://entrylist.herokuapp.com/admin/");
+    return data;
+  });
+  if (error) {
+    return <div>Error</div>;
+  }
+  if (isSuccess) {
+    return (
+      <>
+        {data.map((item, index) => {
+          console.log(item);
+          return (
+            <>
+              <TbRow>
+                <Number>{index+1}</Number>
+                <DateTime>07/18</DateTime>
+                <Name>{item.visitorName}</Name>
+                <Phone>{item.visitorPhoneNumber}</Phone>
+                <Reason>{item.visitorReason}</Reason>
+                <InTime>{item.entranceTime}</InTime>
+                <OutTime>{item.exitTime}</OutTime>
+              </TbRow>
+            </>
+          );
+        })}
+      </>
+    );
+  }
+}
+
+export default InquiryContainer;
 
 const Container = styled.div`
   width: 1400px;
@@ -165,13 +112,6 @@ const HeadTable = styled.table`
     height: 60px;
     border-collapse: collapse;
 `;
-
-const TableHeader = styled.thead`
-    width: 1400px;
-    height: 60px;
-    background: #F3F3F3;
-`;
-
 const ThRow = styled.tr`
     height: 60px;
     border: none;
@@ -257,66 +197,67 @@ const BodyTable = styled.table`
     height: 480px;
 `;
 
-const TableBody = styled.tbody`
-    width: 1440px;
-    height: 480px;
-`;
-
 const TbRow = styled.tr`
-    height: 60px;
+    width: 1440px;
+    line-height: 30px;
     border: none;
     text-align: center;
 `;
 
 const Number = styled.td`
     width: 150px;
+    line-height: 30px;
     text-align: center;
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 25px;
 `;
 
 const DateTime = styled.td`
     width: 200px;
+    line-height: 30px;
     text-align: center;
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 25px;
 `;
 const Name = styled.td`
-      width: 200px;
+    width: 200px;
+    line-height: 30px;
     text-align: center;
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 25px;
 `;
 const Phone = styled.td`
     width: auto;
+    line-height: 30px;
     text-align: center;
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 25px;
 `;
 const Reason = styled.td`
     width: 200px;
+    line-height: 30px;
     text-align: center;
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 25px;
 `;
 const InTime = styled.td`
     width: 200px;
+    line-height: 30px;
     text-align: center;
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 25px;
 `;
 const OutTime = styled.td`
     width: 200px;
+    line-height: 30px;
     text-align: center;
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 26px;
 `;
-
-export default InquiryContainer;
