@@ -30,9 +30,6 @@ function App() {
         </BrowserRouter>
         <GlobalStyle />
       </QueryClientProvider>
-      {/* <InputContainer/> */}
-      {/* <AdminContainer />
-      <InquiryContainer /> */}
     </>
   );
 }
