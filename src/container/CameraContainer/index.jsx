@@ -41,6 +41,7 @@ const CameraContainer = () => {
       },
     }
   );
+
   useEffect(() => {
     if (cardId) {
       notify();
