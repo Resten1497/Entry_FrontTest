@@ -13,8 +13,8 @@ function Button(props) {
 
 const NextBtn = styled.button`
   border: none;
-  width: 125px;
-  height: 60px;
+  width: 153px;
+  height: 63px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +30,6 @@ const NextBtn = styled.button`
 `;
 
 const Title = styled.span`
-  font-size: 0.9em;
   font-style: normal;
   font-weight: 400;
   padding-left: 5px;
@@ -38,7 +37,6 @@ const Title = styled.span`
 
 const Img = styled.img`
   padding: 0 0 0 5px;
-  width: 40px;
 `;
 
 export default Button;

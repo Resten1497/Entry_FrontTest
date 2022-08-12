@@ -48,18 +48,18 @@ const Content = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 120px;
+  width: 131px;
   margin-bottom: 32px;
 `;
 
 const MainText = styled.h1`
-  font-size: 2.5em;
+  font-size: 3em;
   font-weight: 600;
   padding-bottom: 18px;
 `;
 
 const SubText = styled.p`
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: 400;
 `;
 
