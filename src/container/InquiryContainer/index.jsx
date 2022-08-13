@@ -23,7 +23,7 @@ function InquiryContainer() {
         <Day type="month" name="day" defaultValue={dateValue} />
         <Table>
           <thead>
-            <Row>
+            <HRow>
                 <Number>번호</Number>
                 <DateTime>날짜</DateTime>
                 <Name>이름</Name>
@@ -31,7 +31,7 @@ function InquiryContainer() {
                 <Reason>방문목적</Reason>
                 <InTime>입실시간</InTime>
                 <OutTime>퇴실시간</OutTime>
-              </Row>
+              </HRow>
           </thead>
           <tbody>
               {/* <Row>
@@ -89,9 +89,6 @@ const Container = styled.div`
   width: 1400px;
   height: 100vh;
   margin: 0 auto;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 `;
 
 const Content = styled.div`
@@ -117,6 +114,15 @@ const Table = styled.table`
     width: 1400px;
     height: 60px;
     border-collapse: collapse;
+`;
+
+const HRow = styled.tr`
+    width: 1440px;
+    height: 60px;
+    line-height: 30px;
+    border: none;
+    text-align: center;
+    background: #F3F3F3;
 `;
 
 const Row = styled.tr`
