@@ -34,16 +34,16 @@ function InquiryContainer() {
               </Row>
           </thead>
           <tbody>
-              <Row>
-                  <Number>{1}</Number>
+              {/* <Row>
+                  <Number>1</Number>
                   <DateTime>07/18</DateTime>
                   <Name>김여우</Name>
                   <Phone>010-1234-5678</Phone>
                   <Reason>산책</Reason>
                   <InTime>90시90분</InTime>
                   <OutTime>90시90분</OutTime>
-              </Row>
-                {/* <GetData /> */}
+              </Row> */}
+                <GetData />
             </tbody>
           </Table>
       </Content>
