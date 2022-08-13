@@ -1,4 +1,5 @@
 import IntroduceContainer from "./container/IntroduceContainer";
+import MainContainer from './container/MainContainer';
 import InputContainer from "./container/InputContainer";
 import CompleteContainer from "./container/CompleteContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -19,6 +20,7 @@ function App() {
           <GlobalStyle />
           <Routes>
             <Route path="/" element={<IntroduceContainer />} />
+            <Route path="/main" element={<MainContainer />} />
             <Route path="/regist" element={<InputContainer />} />
             <Route path="/complete" element={<CompleteContainer />} />
             <Route path="/camera" element={<CameraContainer />} />
