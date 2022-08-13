@@ -8,6 +8,7 @@ import AdminContainer from "./container/AdminContainer";
 import InquiryContainer from "./container/InquiryContainer";
 import ExitContainer from "./container/ExitContainer";
 import ExitCompleteContainer from "./container/ExitCompleteContainer";
+import ErrorContainer from './container/ErrorContainer';
 import GlobalStyle from "./style/globalStyle";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ function App() {
             <Route path="/exitcomplete" element={<ExitCompleteContainer />} />
             <Route path="/inquiry" element={<InquiryContainer />} />
             <Route path="/admin" element={<AdminContainer />} />
+            <Route path="/error" element={<ErrorContainer />} />
           </Routes>
         </BrowserRouter>
         <GlobalStyle />
