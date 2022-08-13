@@ -20,27 +20,32 @@ function InquiryContainer() {
   return (
     <Container>
       <Content>
-      <Day type="month" name="day" defaultValue={dateValue} />
-      <HeadTable>
-        <thead>
-          <ThRow>
-              <HeadDataNumber>번호</HeadDataNumber>
-              <HeadDataDate>날짜</HeadDataDate>
-              <HeadDataName>이름</HeadDataName>
-              <HeadDataPhone>전화번호</HeadDataPhone>
-              <HeadDataReason>방문목적</HeadDataReason>
-              <HeadDataInTime>입실시간</HeadDataInTime>
-              <HeadDataOutTime>퇴실시간</HeadDataOutTime>
-            </ThRow>
-        </thead>
-        </HeadTable>
-        <Over>
-          <BodyTable>
-            <tbody>
-              <GetData />
+        <Day type="month" name="day" defaultValue={dateValue} />
+        <Table>
+          <thead>
+            <Row>
+                <Number>번호</Number>
+                <DateTime>날짜</DateTime>
+                <Name>이름</Name>
+                <Phone>전화번호</Phone>
+                <Reason>방문목적</Reason>
+                <InTime>입실시간</InTime>
+                <OutTime>퇴실시간</OutTime>
+              </Row>
+          </thead>
+          <tbody>
+              <Row>
+                  <Number>{1}</Number>
+                  <DateTime>07/18</DateTime>
+                  <Name>김여우</Name>
+                  <Phone>010-1234-5678</Phone>
+                  <Reason>산책</Reason>
+                  <InTime>90시90분</InTime>
+                  <OutTime>90시90분</OutTime>
+              </Row>
+                {/* <GetData /> */}
             </tbody>
-          </BodyTable>
-        </Over>
+          </Table>
       </Content>
     </Container>
   );
@@ -61,7 +66,7 @@ function GetData() {
           console.log(item);
           return (
             <>
-              <TbRow>
+              <Row>
                 <Number>{index+1}</Number>
                 <DateTime>07/18</DateTime>
                 <Name>{item.visitorName}</Name>
@@ -69,7 +74,7 @@ function GetData() {
                 <Reason>{item.visitorReason}</Reason>
                 <InTime>{item.entranceTime}</InTime>
                 <OutTime>{item.exitTime}</OutTime>
-              </TbRow>
+              </Row>
             </>
           );
         })}
@@ -84,16 +89,13 @@ const Container = styled.div`
   width: 1400px;
   height: 100vh;
   margin: 0 auto;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 `;
 
 const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  margin-top: 25%;
 `;
 
 const Day = styled.input`
@@ -111,99 +113,15 @@ const Day = styled.input`
     }
 `;
 
-const HeadTable = styled.table`
+const Table = styled.table`
     width: 1400px;
     height: 60px;
     border-collapse: collapse;
 `;
-const ThRow = styled.tr`
-    height: 60px;
-    border: none;
-    text-align: center;
-`;
 
-const HeadDataNumber = styled.td`
-    width: 150px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    text-align: center;
-`;
-
-const HeadDataDate = styled.td`
-    width: 200px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    text-align: center;
-`;
-
-const HeadDataName =styled.td`
-    width: 200px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    text-align: center;
-`;
-
-const HeadDataPhone = styled.td`
-    width: auto;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    text-align: center;
-`;
-
-const HeadDataReason = styled.td`
-    width: 200px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    text-align: center;
-`;
-
-const HeadDataInTime = styled.td`
-    width: 200px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    text-align: center;
-`;
-
-const HeadDataOutTime = styled.td`
-    width: 200px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    text-align: center;
-`;
-
-const Over = styled.div`
-    width: 1400px;
-    height: 480px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
-  &::-webkit-scrollbar-thumb {
-    width: 4px;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-  &::-webkit-scrollbar-track {
-    background-color: initial;
-  }
-`;
-
-const BodyTable = styled.table`
-    width: 1400px;
-    height: 480px;
-    border-collapse: collapse;
-`;
-
-const TbRow = styled.tr`
+const Row = styled.tr`
     width: 1440px;
+    height: 60px;
     line-height: 30px;
     border: none;
     text-align: center;
