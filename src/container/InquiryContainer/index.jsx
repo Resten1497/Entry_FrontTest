@@ -3,12 +3,27 @@ import {
   QueryClient,
   useQuery,
 } from "@tanstack/react-query";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Calendar from "../../assets/images/Calendar.png";
+import qs from "qs";
 
 function InquiryContainer() {
+  const { data, refetch, isSuccess, isError } = useQuery(["data"], async () => {
+    let year = searchDate.split("-")[0];
+    let month = searchDate.split("-")[1];
+    console.log(year, month);
+    const { data } = await axios.post(
+      "https://entrylist.herokuapp.com/admin",
+      qs.stringify({ lookupYear: year, lookupMonth: month }),
+      {
+        headers: { "content-type": "application/x-www-form-urlencoded" },
+      }
+    );
+
+    return data;
+  });
   const day = new Date();
   const year = String(day.getFullYear());
   let first = String(day.getMonth() + 1).split("");
@@ -18,101 +33,64 @@ function InquiryContainer() {
   const month = [first].join().replace(/,/g, "");
   const dateValue = year + "-" + month;
 
+  const [searchDate, setSearchDate] = useState(dateValue);
+
+  useEffect(() => {
+    refetch();
+  }, [searchDate]);
+
   return (
     <Container>
       <Content>
-<<<<<<< Updated upstream
-        <Day type="month" name="day" defaultValue={dateValue} />
-        <Table>
-          <thead>
-            <HRow>
-                <Number>번호</Number>
-                <DateTime>날짜</DateTime>
-                <Name>이름</Name>
-                <Phone>전화번호</Phone>
-                <Reason>방문목적</Reason>
-                <InTime>입실시간</InTime>
-                <OutTime>퇴실시간</OutTime>
-              </HRow>
-          </thead>
-          <tbody>
-              {/* <Row>
-                  <Number>1</Number>
-                  <DateTime>07/18</DateTime>
-                  <Name>김여우</Name>
-                  <Phone>010-1234-5678</Phone>
-                  <Reason>산책</Reason>
-                  <InTime>90시90분</InTime>
-                  <OutTime>90시90분</OutTime>
-              </Row> */}
-                <GetData />
-            </tbody>
-          </Table>
-=======
         <Day
           type="month"
           name="day"
           defaultValue={dateValue}
           onChange={(e) => {
-            console.log(e.target.value);
+            setSearchDate(e.target.value);
           }}
         />
         <HeadTable>
-          <ThRow>
-            <HeadDataNumber>번호</HeadDataNumber>
-            <HeadDataDate>날짜</HeadDataDate>
-            <HeadDataName>이름</HeadDataName>
-            <HeadDataPhone>전화번호</HeadDataPhone>
-            <HeadDataReason>방문목적</HeadDataReason>
-            <HeadDataInTime>입실시간</HeadDataInTime>
-            <HeadDataOutTime>퇴실시간</HeadDataOutTime>
-          </ThRow>
+          <thead>
+            <ThRow>
+              <HeadDataNumber>번호</HeadDataNumber>
+              <HeadDataDate>날짜</HeadDataDate>
+              <HeadDataName>이름</HeadDataName>
+              <HeadDataPhone>전화번호</HeadDataPhone>
+              <HeadDataReason>방문목적</HeadDataReason>
+              <HeadDataInTime>입실시간</HeadDataInTime>
+              <HeadDataOutTime>퇴실시간</HeadDataOutTime>
+            </ThRow>
+          </thead>
         </HeadTable>
         <Over>
           <BodyTable>
-            <GetData />
+            <tbody>
+              {isSuccess ? (
+                data.map((item, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <TbRow>
+                        <Number>{index + 1}</Number>
+                        <DateTime>07/18</DateTime>
+                        <Name>{item.visitorName}</Name>
+                        <Phone>{item.visitorPhoneNumber}</Phone>
+                        <Reason>{item.visitorReason}</Reason>
+                        <InTime>{item.entranceTime}</InTime>
+                        <OutTime>{item.exitTime}</OutTime>
+                      </TbRow>
+                    </React.Fragment>
+                  );
+                })
+              ) : (
+                <tr></tr>
+              )}
+            </tbody>
           </BodyTable>
         </Over>
->>>>>>> Stashed changes
       </Content>
     </Container>
   );
-}
-
-function GetData() {
-  const { isLoading, error, data, isSuccess } = useQuery(["data"], async () => {
-    const { data } = await axios.post("https://entrylist.herokuapp.com/admin/");
-    return data;
-  });
-  if (error) {
-    return <div>Error</div>;
-  }
-  if (isSuccess) {
-    return (
-      <>
-        {data.map((item, index) => {
-          return (
-            <>
-<<<<<<< Updated upstream
-              <Row>
-                <Number>{index+1}</Number>
-=======
-              <TbRow>
-                <Number>{index + 1}</Number>
->>>>>>> Stashed changes
-                <DateTime>07/18</DateTime>
-                <Name>{item.visitorName}</Name>
-                <Phone>{item.visitorPhoneNumber}</Phone>
-                <Reason>{item.visitorReason}</Reason>
-                <InTime>{item.entranceTime}</InTime>
-                <OutTime>{item.exitTime}</OutTime>
-              </Row>
-            </>
-          );
-        })}
-      </>
-    );
-  }
 }
 
 export default InquiryContainer;
@@ -121,10 +99,16 @@ const Container = styled.div`
   width: 1400px;
   height: 100vh;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Content = styled.div`
-  margin-top: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 `;
 
 const Day = styled.input`
@@ -142,29 +126,6 @@ const Day = styled.input`
   }
 `;
 
-<<<<<<< Updated upstream
-const Table = styled.table`
-    width: 1400px;
-    height: 60px;
-    border-collapse: collapse;
-`;
-
-const HRow = styled.tr`
-    width: 1440px;
-    height: 60px;
-    line-height: 30px;
-    border: none;
-    text-align: center;
-    background: #F3F3F3;
-`;
-
-const Row = styled.tr`
-    width: 1440px;
-    height: 60px;
-    line-height: 30px;
-    border: none;
-    text-align: center;
-=======
 const HeadTable = styled.table`
   width: 1400px;
   height: 60px;
@@ -253,6 +214,7 @@ const Over = styled.div`
 const BodyTable = styled.table`
   width: 1400px;
   height: 480px;
+  border-collapse: collapse;
 `;
 
 const TbRow = styled.tr`
@@ -260,7 +222,6 @@ const TbRow = styled.tr`
   line-height: 30px;
   border: none;
   text-align: center;
->>>>>>> Stashed changes
 `;
 
 const Number = styled.td`
@@ -289,21 +250,12 @@ const Name = styled.td`
   font-size: 25px;
 `;
 const Phone = styled.td`
-<<<<<<< Updated upstream
-    width: 250px;
-    line-height: 30px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-=======
-  width: auto;
+  width: 250px;
   line-height: 30px;
   text-align: center;
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
->>>>>>> Stashed changes
 `;
 const Reason = styled.td`
   width: 200px;
