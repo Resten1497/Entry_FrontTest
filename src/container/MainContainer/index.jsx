@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 import logo from '../../assets/images/schoolLogo.png';
-import logoin from '../../assets/images/login.png';
-import logout from '../../assets/images/logout.png';
+import enter from '../../assets/images/enter.png';
+import exit from '../../assets/images/exit.png';
 
 function Main(){
     const navigate = useNavigate();
@@ -19,11 +19,11 @@ function Main(){
             </Header>
             <Section>
                 <Btn onClick={LogIn}>
-                    <LogImg src={logoin}/>
+                    <LogImg src={enter}/>
                     <BtnText>입실</BtnText>
                 </Btn>
                 <Btn onClick={LogOut}>
-                    <LogImg src={logout}/>
+                    <LogImg src={exit}/>
                     <BtnText>퇴실</BtnText>
                 </Btn>
             </Section>
