@@ -19,14 +19,14 @@ function InputContainer() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const handleLinkOnClick = useCallback(
-    () => navigate("/complete"),
-    [navigate]
-  );
+  const handleLinkOnClick = (visitorName) =>
+    navigate("/complete", { state: visitorName });
 
-  const onSubmit = (data) => {
-    sendVisitorData(data);
-    handleLinkOnClick();
+  const onSubmit = async (data) => {
+    let sendResult = await sendVisitorData(data);
+    if (sendResult.data == true) {
+      handleLinkOnClick(data.visitorName);
+    }
   };
   const handleKeyDown = (e) => {
     if (e.keyCode === "13") {
@@ -152,10 +152,18 @@ function InputContainer() {
                 "개인정보수집에 동의해주세요"}
             </Error>
           </Lable>
+          <input
+            {...register("cardId", {
+              required: true,
+            })}
+            type="hidden"
+            value={location.state}
+            name="cardId"
+          />
+
           <Btn>
             <NextBtn onClick={null} onKeyDown={handleKeyDown} />
           </Btn>
-          <input type="hidden" value={cardId} name="cardId" />
         </Form>
       </Content>
     </Container>

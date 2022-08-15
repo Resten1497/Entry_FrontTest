@@ -1,14 +1,16 @@
 import Animation from "../../components/animation";
 import styled from "styled-components";
-
+import { useLocation } from "react-router-dom";
 function CompleteContainer() {
+  const location = useLocation();
+  console.log("state");
   return (
     <Container>
       <Animation />
       <Title>
         입장 절차가 완료되었습니다!
         <br />
-        퇴실할때 QR코드를 다시 찍어주세요!
+        {location.state}님 안녕하세요!
       </Title>
     </Container>
   );
