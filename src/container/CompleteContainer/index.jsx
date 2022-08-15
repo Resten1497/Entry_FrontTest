@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 function CompleteContainer() {
   const location = useLocation();
-  console.log("state");
+
   return (
     <Container>
       <Animation />

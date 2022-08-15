@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const CameraContainer = () => {
   const [cardId, setCardId] = useState(null);
+  const [iscompleted, setIscompleted] = useState(false);
+
   const navigate = useNavigate();
   const handleLinkOnClick = (cardId) => navigate("/regist", { state: cardId });
   let ref = useRef();
@@ -16,34 +18,47 @@ const CameraContainer = () => {
   const notify = () =>
     (toastId.current = toast("인식중입니다.", {
       type: toast.loading,
-      autoClose: 1000,
+      autoClose: 500,
       delay: 100,
     }));
+
   const { mutate, isLoading, isError, error, isSuccess } = useMutation(
     sendCardData,
     {
       onSuccess: (data) => {
-        toast.update(toastId.current, {
-          render: "완료되었습니다.",
-          type: toast.success,
-          onClose: () => {
-            handleLinkOnClick(cardId);
-            ref.current.stopCamera();
-          },
-        });
+        console.log(data);
+        if (data.data == true) {
+          setIscompleted(true);
+          toast.update(toastId.current, {
+            render: "완료되었습니다.",
+            type: toast.success,
+            onClose: () => {
+              ref.current.stopCamera();
+              handleLinkOnClick(cardId);
+            },
+          });
+        } else {
+          ref.current.els.preview.play();
+          toast.update(toastId.current, {
+            render: "인식에 실패하였습니다.",
+            type: toast.error,
+            onClose: () => {},
+          });
+        }
       },
       onError: (error) => {
+        ref.current.els.preview.play();
         toast.update(toastId.current, {
-          render: "인증되지 않은 카드입니다.",
+          render: "오류가 발생했습니다.",
           type: toast.error,
-          autoClose: 1000,
+          autoClose: 500,
         });
       },
     }
   );
 
   useEffect(() => {
-    if (cardId) {
+    if (cardId && !iscompleted) {
       notify();
       mutate({ cardId: cardId });
       setCardId(null);
@@ -60,6 +75,7 @@ const CameraContainer = () => {
           onScan={(result) => {
             if (result) {
               setCardId(result);
+              ref.current.els.preview.pause();
             }
           }}
           className="QrReader"
