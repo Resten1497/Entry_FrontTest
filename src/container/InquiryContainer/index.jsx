@@ -13,7 +13,7 @@ function InquiryContainer() {
   const { data, refetch, isSuccess, isError } = useQuery(["data"], async () => {
     let year = searchDate.split("-")[0];
     let month = searchDate.split("-")[1];
-    console.log(year, month);
+    // console.log(year, month);
     const { data } = await axios.post(
       "https://entrylist.herokuapp.com/admin",
       qs.stringify({ lookupYear: year, lookupMonth: month }),
@@ -21,7 +21,6 @@ function InquiryContainer() {
         headers: { "content-type": "application/x-www-form-urlencoded" },
       }
     );
-
     return data;
   });
   const day = new Date();

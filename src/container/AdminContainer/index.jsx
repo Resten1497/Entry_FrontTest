@@ -1,12 +1,30 @@
 import logo from "../../assets/images/schoolLogo.png";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
 import { useRef, useCallback } from "react";
 import sendPassword from "../../api/sendPassword";
+
 function AdminContainer() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/inquiry"), [navigate]);
+
+  const onSubmit = async (data) => {
+    let sendResult = await sendPassword(data);
+    if (sendResult.data == true) {
+      handleLinkOnClick(data.visitorName);
+    }
+  };
+  const handleKeyDown = (e) => {
+    if (e.keyCode === "13") {
+      handleLinkOnClick();
+    }
+  };
   let ref = useRef();
   return (
     <Container>
@@ -15,7 +33,7 @@ function AdminContainer() {
           <Logo src={logo} alt="Logo" />
           <Title>관리자 페이지</Title>
         </div>
-        <Form>
+        <Form method="post" onSubmit={handleSubmit(onSubmit)}>
           <label>
             <PswTitle>비밀번호</PswTitle>
             <Password
@@ -24,16 +42,19 @@ function AdminContainer() {
               name="password"
               placeholder="비밀번호를 입력해주세요"
               autoComplete="off"
+              {...register("password", {
+                required: true,
+              })}
             />
+            <Error>
+              {errors.password?.type === "required" &&
+                "비밀번호를 입력해주세요!"}
+            </Error>
           </label>
           <NextBtn
-            type="button"
-            onClick={() => {
-              checkPassword(ref.current.value);
-            }}
-          >
-            <BtnTitie>다음</BtnTitie>
-          </NextBtn>
+            onClick={() => {checkPassword(ref.current.value);}}
+            onKeyDown={handleKeyDown}
+          >다음</NextBtn>
         </Form>
       </Content>
     </Container>
@@ -46,6 +67,7 @@ function checkPassword(keys) {
     })
     .catch((err) => {});
 }
+
 const Container = styled.div`
   width: 500px;
   height: 100vh;
@@ -92,7 +114,6 @@ const PswTitle = styled.p`
 `;
 
 const Password = styled.input`
-  margin-bottom: 28px;
   width: 365px;
   height: 70px;
   background: #ffffff;
@@ -112,17 +133,20 @@ const Password = styled.input`
 `;
 
 const NextBtn = styled.button`
+  margin-top: 20px;
   width: 313px;
   height: 62px;
   background: #5686e1;
   border: none;
   border-radius: 30px;
-`;
-
-const BtnTitie = styled.p`
   font-weight: 500;
   font-size: 26px;
   color: #ffffff;
+`;
+
+const Error = styled.p`
+  color: #ff6464;
+  padding: 10px;
 `;
 
 export default AdminContainer;
