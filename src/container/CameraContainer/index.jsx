@@ -26,7 +26,6 @@ const CameraContainer = () => {
     sendCardData,
     {
       onSuccess: (data) => {
-        console.log(data);
         if (data.data == true) {
           setIscompleted(true);
           toast.update(toastId.current, {
@@ -82,8 +81,6 @@ const CameraContainer = () => {
           onError={(err) => console.log(err)}
         />
         <Title>QR 코드를 화면에 보여주세요</Title>
-        {/* {isLoading ? <WarinningText>요청중</WarinningText> : null}
-        {isError ? <WarinningText>잘못된 QR코드입니다.</WarinningText> : null} */}
         <ToastContainer position="bottom-right" />
       </Wrap>
     </>

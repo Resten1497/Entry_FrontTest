@@ -8,12 +8,17 @@ import axios from "axios";
 import styled from "styled-components";
 import Calendar from "../../assets/images/Calendar.png";
 import qs from "qs";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function InquiryContainer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const { data, refetch, isSuccess, isError } = useQuery(["data"], async () => {
     let year = searchDate.split("-")[0];
     let month = searchDate.split("-")[1];
     // console.log(year, month);
+
     const { data } = await axios.post(
       "https://entrylist.herokuapp.com/admin",
       qs.stringify({ lookupYear: year, lookupMonth: month }),
@@ -34,6 +39,12 @@ function InquiryContainer() {
 
   const [searchDate, setSearchDate] = useState(dateValue);
 
+  useEffect(() => {
+    if (location.state == null) {
+      alert("로그인이 필요합니다.");
+      navigate("/admin");
+    }
+  }, []);
   useEffect(() => {
     refetch();
   }, [searchDate]);
@@ -62,26 +73,28 @@ function InquiryContainer() {
             </HRow>
           </thead>
           <tbody>
-              {isSuccess ? (
-                data.map((item, index) => {
-                  return (  
-                    <React.Fragment key={index}>
-                      <Row>
-                        <Number>{index + 1}</Number>
-                        <DateTime>{item.entranceMonth}/{item.entranceDay}</DateTime>
-                        <Name>{item.visitorName}</Name>
-                        <Phone>{item.visitorPhoneNumber}</Phone>
-                        <Reason>{item.visitorReason}</Reason>
-                        <InTime>{item.entranceTime}</InTime>
-                        <OutTime>{item.exitTime}</OutTime>
-                      </Row>
-                    </React.Fragment>
-                  );
-                })
-              ) : (
-                <tr></tr>
-              )}
-            </tbody>
+            {isSuccess ? (
+              data.map((item, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    <Row>
+                      <Number>{index + 1}</Number>
+                      <DateTime>
+                        {item.entranceMonth}/{item.entranceDay}
+                      </DateTime>
+                      <Name>{item.visitorName}</Name>
+                      <Phone>{item.visitorPhoneNumber}</Phone>
+                      <Reason>{item.visitorReason}</Reason>
+                      <InTime>{item.entranceTime}</InTime>
+                      <OutTime>{item.exitTime}</OutTime>
+                    </Row>
+                  </React.Fragment>
+                );
+              })
+            ) : (
+              <tr></tr>
+            )}
+          </tbody>
         </Table>
       </Content>
     </Container>
@@ -101,97 +114,97 @@ const Content = styled.div`
 `;
 
 const Day = styled.input`
-    margin-bottom: 50px;
-    width: 400px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 3.5rem;
-    border: none;
-    &:focus{
-      outline: none;
-    }
-    &::-webkit-calendar-picker-indicator {
-      background: url(${Calendar});
-    }
+  margin-bottom: 50px;
+  width: 400px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3.5rem;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  &::-webkit-calendar-picker-indicator {
+    background: url(${Calendar});
+  }
 `;
 
 const Table = styled.table`
-    width: 1400px;
-    height: 60px;
-    border-collapse: collapse;
+  width: 1400px;
+  height: 60px;
+  border-collapse: collapse;
 `;
 
 const HRow = styled.tr`
-    width: 1440px;
-    height: 60px;
-    line-height: 30px;
-    border: none;
-    text-align: center;
-    background: #F3F3F3;
+  width: 1440px;
+  height: 60px;
+  line-height: 30px;
+  border: none;
+  text-align: center;
+  background: #f3f3f3;
 `;
 
 const Row = styled.tr`
-    width: 1440px;
-    height: 60px;
-    line-height: 30px;
-    border: none;
-    text-align: center;
+  width: 1440px;
+  height: 60px;
+  line-height: 30px;
+  border: none;
+  text-align: center;
 `;
 
 const Number = styled.td`
-    width: 150px;
-    line-height: 30px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
+  width: 150px;
+  line-height: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
 `;
 
 const DateTime = styled.td`
-    width: 200px;
-    line-height: 30px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
+  width: 200px;
+  line-height: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
 `;
 const Name = styled.td`
-    width: 200px;
-    line-height: 30px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
+  width: 200px;
+  line-height: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
 `;
 const Phone = styled.td`
-    width: 250px;
-    line-height: 30px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
+  width: 250px;
+  line-height: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
 `;
 const Reason = styled.td`
-    width: 200px;
-    line-height: 30px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
+  width: 200px;
+  line-height: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
 `;
 const InTime = styled.td`
-    width: 200px;
-    line-height: 30px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
+  width: 200px;
+  line-height: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
 `;
 const OutTime = styled.td`
-    width: 200px;
-    line-height: 30px;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26px;
+  width: 200px;
+  line-height: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
 `;

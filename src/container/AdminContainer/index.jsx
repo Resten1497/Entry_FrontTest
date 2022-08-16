@@ -12,12 +12,14 @@ function AdminContainer() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const handleLinkOnClick = useCallback(() => navigate("/inquiry"), [navigate]);
+  const handleLinkOnClick = (status) => navigate("/inquiry", { state: status });
 
   const onSubmit = async (data) => {
+    console.log(data);
     let sendResult = await sendPassword(data);
+    console.log(sendResult);
     if (sendResult.data == true) {
-      handleLinkOnClick(data.visitorName);
+      handleLinkOnClick(true);
     }
   };
   const handleKeyDown = (e) => {
@@ -33,7 +35,7 @@ function AdminContainer() {
           <Logo src={logo} alt="Logo" />
           <Title>관리자 페이지</Title>
         </div>
-        <Form method="post" onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <label>
             <PswTitle>비밀번호</PswTitle>
             <Password
@@ -42,7 +44,7 @@ function AdminContainer() {
               name="password"
               placeholder="비밀번호를 입력해주세요"
               autoComplete="off"
-              {...register("password", {
+              {...register("adminKey", {
                 required: true,
               })}
             />
@@ -51,21 +53,11 @@ function AdminContainer() {
                 "비밀번호를 입력해주세요!"}
             </Error>
           </label>
-          <NextBtn
-            onClick={() => {checkPassword(ref.current.value);}}
-            onKeyDown={handleKeyDown}
-          >다음</NextBtn>
+          <NextBtn onKeyDown={handleKeyDown}>다음</NextBtn>
         </Form>
       </Content>
     </Container>
   );
-}
-function checkPassword(keys) {
-  sendPassword(keys)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {});
 }
 
 const Container = styled.div`
