@@ -107,10 +107,12 @@ const Container = styled.div`
   width: 1400px;
   height: 100vh;
   margin: 0 auto;
+  position: relative;
 `;
 
 const Content = styled.div`
-  margin-top: 25%;
+  position: absolute;
+  top: 50px;
 `;
 
 const Day = styled.input`
