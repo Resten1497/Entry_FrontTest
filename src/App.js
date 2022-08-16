@@ -29,7 +29,7 @@ function App() {
             <Route path="/exitcomplete" element={<ExitCompleteContainer />} />
             <Route path="/inquiry" element={<InquiryContainer />} />
             <Route path="/admin" element={<AdminContainer />} />
-            <Route path="/error" element={<ErrorContainer />} />
+            <Route path="/*" element={<ErrorContainer />} />
           </Routes>
         </BrowserRouter>
         <GlobalStyle />
