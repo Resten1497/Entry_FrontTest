@@ -1,13 +1,24 @@
 import React from 'react'
 import styled from 'styled-components';
+import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
 
 function Error(){
+    const navigate = useNavigate();
+    const handleLinkOnClick = useCallback(() => navigate("/main"), [navigate]);
+    const handleKeyDown = (e) => {
+      if (e.keyCode === "13") {
+        console.log('enter');
+        handleLinkOnClick();
+      }
+    };
     return(
-        <Container>
-            <div>
+        <Container onClick={handleLinkOnClick} >
+            <div >
                 <Text>에러가 발생했습니다.</Text>
                 <Text>관리자에게 요청하세요.</Text>
             </div>
+            <Btn autoFocus onKeyDown={handleKeyDown}></Btn>
         </Container>
     )
 }
@@ -29,4 +40,8 @@ const Text = styled.p`
     line-height: 38px;
     text-align: center;
     color: rgba(0, 0, 0, 0.25);
+`;
+
+const Btn = styled.button`
+  opacity: 0;
 `;
