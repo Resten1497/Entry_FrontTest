@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 
 function ExitCompleteContainer() {
-
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/main"), [navigate]);
   const handleKeyDown = (e) => {
@@ -20,7 +19,7 @@ function ExitCompleteContainer() {
       <Title>
         퇴실 절차가 완료되었습니다!
         <br />
-        안녕히가세요 !
+        안녕히가세요!
       </Title>
       <Btn autoFocus onKeyDown={handleKeyDown}></Btn>
     </Container>
