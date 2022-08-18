@@ -28,7 +28,7 @@ function Main(){
                         <BtnText>퇴실</BtnText>
                     </Btn>
                 </Section>
-                    <AdminBtn onClick={Admin}>관리자 페이지</AdminBtn>
+                    {/* <AdminBtn onClick={Admin}>관리자 페이지</AdminBtn> */}
             </Content>
         </Container>
     )
