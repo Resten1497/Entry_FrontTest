@@ -8,7 +8,7 @@ import exit from '../../assets/images/exit.png';
 
 function Main(){
     const navigate = useNavigate();
-    const LogIn = useCallback(() => navigate("/"), [navigate]);
+    const LogIn = useCallback(() => navigate("/main"), [navigate]);
     const LogOut = useCallback(() => navigate("/exit"), [navigate]);
     const Admin = useCallback(() => navigate("/admin"), [navigate]);
     return(
