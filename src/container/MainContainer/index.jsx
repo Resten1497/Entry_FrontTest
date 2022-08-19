@@ -13,6 +13,7 @@ function Main(){
     const Admin = useCallback(() => navigate("/admin"), [navigate]);
     return(
         <Container>
+
             <Content>
                 <BtnContainer>
                     <AdminBtn onClick={Admin}>로그인</AdminBtn>
@@ -52,8 +53,15 @@ const Content = styled.div`
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-content: center;
+`;
+
+const BtnContainer = styled.div`
+    width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
 `;
 
 const Header = styled.div`
@@ -115,13 +123,8 @@ const BtnText = styled.p`
     color: #FFFFFF;
 `;
 
-const BtnContainer = styled.div`
-    /* border: 1px solid #000; */
-    display: flex;
-    justify-content: flex-end;
-`;
-
 const AdminBtn = styled.button`
+    margin-right: 150px;
     width: 150px;
     height: 50px;
     font-style: normal;
