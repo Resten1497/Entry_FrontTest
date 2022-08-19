@@ -75,6 +75,9 @@ function InquiryContainer() {
           <tbody>
             {isSuccess ? (
               data.map((item, index) => {
+                if(item.exitTime == null){
+                  item.exitTime = '-'
+                }
                 return (
                   <React.Fragment key={index}>
                     <Row>

@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 function CompleteContainer() {
   const location = useLocation();
   const navigate = useNavigate();
-  const handleLinkOnClick = useCallback(() => navigate("/main"), [navigate]);
+  const handleLinkOnClick = useCallback(() => navigate("/"), [navigate]);
   const handleKeyDown = (e) => {
     if (e.keyCode === "13") {
       console.log('enter');
