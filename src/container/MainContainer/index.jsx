@@ -124,6 +124,7 @@ const BtnText = styled.p`
 `;
 
 const AdminBtn = styled.button`
+    margin-top: 50px;
     margin-right: 150px;
     width: 150px;
     height: 50px;
