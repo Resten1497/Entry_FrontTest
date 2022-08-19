@@ -42,7 +42,7 @@ const ExitContainer = () => {
           className="QrReader"
           onError={(err) => console.log(err)}
         />
-        <Title>QR 코드를 화면에 보여주세요</Title>
+        <Title>방문증에 있는 QR 코드를 화면에 보여주세요</Title>
         {isLoading ? <WarinningText>요청중</WarinningText> : null}
         {isError ? <WarinningText>오류가 발생했습니다.</WarinningText> : null}
       </Wrap>

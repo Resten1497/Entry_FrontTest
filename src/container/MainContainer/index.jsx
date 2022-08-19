@@ -14,9 +14,14 @@ function Main(){
     return(
         <Container>
             <Content>
+                <BtnContainer>
+                    <AdminBtn onClick={Admin}>로그인</AdminBtn>
+                </BtnContainer>
                 <Header>
-                    <Logo src={logo}/>
-                    <Title>출입자 명부 관리 서비스</Title>
+                    <Mark>
+                        <Logo src={logo}/>
+                        <Title>출입자 명부 관리 서비스</Title>
+                    </Mark>
                 </Header>
                 <Section>
                     <Btn onClick={LogIn}>
@@ -28,7 +33,7 @@ function Main(){
                         <BtnText>퇴실</BtnText>
                     </Btn>
                 </Section>
-                    {/* <AdminBtn onClick={Admin}>관리자 페이지</AdminBtn> */}
+                    
             </Content>
         </Container>
     )
@@ -42,17 +47,24 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-    width: 1400px;
+    width: 1800px;
     height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-content: center;
 `;
 
 const Header = styled.div`
     width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Mark = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,8 +82,7 @@ const Title = styled.p`
 `;
 
 const Section = styled.div`
-    width: 1400px;
-    height: auto;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
@@ -104,18 +115,22 @@ const BtnText = styled.p`
     color: #FFFFFF;
 `;
 
+const BtnContainer = styled.div`
+    /* border: 1px solid #000; */
+    display: flex;
+    justify-content: flex-end;
+`;
+
 const AdminBtn = styled.button`
-    width: 516px;
-    height: 98px;
-    margin: 0 auto;
+    width: 150px;
+    height: 50px;
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 26px;
     color: #222222;
     background: #FFFFFF;
     border: 0.1px solid #000;
     border-radius: 30px;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
 `;

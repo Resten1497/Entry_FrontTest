@@ -86,7 +86,7 @@ function InputContainer() {
               name="visitorDivision"
               className="info"
               id="visitorDivision"
-              placeholder="서울디지텍고등학교"
+              placeholder="회사명"
               autoComplete="off"
               {...register("visitorDivision", {
                 required: true,
@@ -104,7 +104,7 @@ function InputContainer() {
               name="visitorReason"
               className="info"
               id="visitorReason"
-              placeholder="강의진행"
+              placeholder="강의, 미팅"
               autoComplete="off"
               {...register("visitorReason", {
                 required: true,

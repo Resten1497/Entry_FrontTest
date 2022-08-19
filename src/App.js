@@ -20,8 +20,8 @@ function App() {
         <BrowserRouter>
           <GlobalStyle />
           <Routes>
-            <Route path="/main" element={<IntroduceContainer />} />
             <Route path="/" element={<MainContainer />} />
+            <Route path="/main" element={<IntroduceContainer />} />
             <Route path="/regist" element={<InputContainer />} />
             <Route path="/complete" element={<CompleteContainer />} />
             <Route path="/camera" element={<CameraContainer />} />

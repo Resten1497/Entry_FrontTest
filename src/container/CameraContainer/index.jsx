@@ -80,7 +80,7 @@ const CameraContainer = () => {
           className="QrReader"
           onError={(err) => console.log(err)}
         />
-        <Title>QR 코드를 화면에 보여주세요</Title>
+        <Title>방문증에 있는 QR 코드를 화면에 보여주세요</Title>
         <ToastContainer position="bottom-right" />
       </Wrap>
     </>
