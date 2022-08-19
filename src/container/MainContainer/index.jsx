@@ -65,6 +65,7 @@ const BtnContainer = styled.div`
 `;
 
 const Header = styled.div`
+    margin-bottom: 50px;
     width: 100%;
     height: 300px;
     display: flex;
