@@ -43,6 +43,7 @@ function AdminContainer() {
               type="password"
               name="password"
               placeholder="비밀번호를 입력해주세요"
+              
               autoComplete="off"
               {...register("adminKey", {
                 required: true,

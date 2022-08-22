@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CameraContainer from "./container/CameraContainer";
 import AdminContainer from "./container/AdminContainer";
 import InquiryContainer from "./container/InquiryContainer";
+import CardInquiryContainer from './container/CardInquiryContainer';
 import ExitContainer from "./container/ExitContainer";
 import ExitCompleteContainer from "./container/ExitCompleteContainer";
 import ErrorContainer from './container/ErrorContainer';
@@ -28,6 +29,7 @@ function App() {
             <Route path="/exit" element={<ExitContainer />} />
             <Route path="/exitcomplete" element={<ExitCompleteContainer />} />
             <Route path="/inquiry" element={<InquiryContainer />} />
+            <Route path="/card" element={<CardInquiryContainer />} />
             <Route path="/admin" element={<AdminContainer />} />
             <Route path="/*" element={<ErrorContainer />} />
           </Routes>

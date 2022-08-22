@@ -42,8 +42,6 @@ function InputContainer() {
             <StyledInput
               type="text"
               name="visitorName"
-              className="info"
-              id="visitorName"
               placeholder="홍길동 "
               autoComplete="off"
               {...register("visitorName", {
@@ -60,8 +58,6 @@ function InputContainer() {
             <StyledInput
               type="text"
               name="visitorPhoneNumber"
-              className="info"
-              id="visitorPhoneNumber"
               placeholder="010-8888-8888"
               autoComplete="off"
               {...register("visitorPhoneNumber", {
@@ -84,8 +80,6 @@ function InputContainer() {
             <StyledInput
               type="text"
               name="visitorDivision"
-              className="info"
-              id="visitorDivision"
               placeholder="회사명"
               autoComplete="off"
               {...register("visitorDivision", {
@@ -102,8 +96,6 @@ function InputContainer() {
             <StyledInput
               type="text"
               name="visitorReason"
-              className="info"
-              id="visitorReason"
               placeholder="강의, 미팅"
               autoComplete="off"
               {...register("visitorReason", {
@@ -120,8 +112,6 @@ function InputContainer() {
             <StyledInput
               type="text"
               name="temperature"
-              className="info"
-              id="temperature"
               placeholder="36.5"
               autoComplete="off"
               {...register("temperature", {
@@ -139,8 +129,6 @@ function InputContainer() {
                 type="checkbox"
                 autoFocus
                 name="privacyLabal"
-                id="privacyLabal"
-                className="checkBox"
                 {...register("privacyLabal", {
                   required: true,
                 })}

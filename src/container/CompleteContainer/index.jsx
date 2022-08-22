@@ -2,10 +2,11 @@ import Animation from "../../components/animation";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 function CompleteContainer() {
-  const location = useLocation();
+  // const location = useLocation();
+  // console.log(location);
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/"), [navigate]);
   const handleKeyDown = (e) => {

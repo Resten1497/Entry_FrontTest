@@ -3,7 +3,7 @@ import {
   QueryClient,
   useQuery,
 } from "@tanstack/react-query";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import Calendar from "../../assets/images/Calendar.png";
@@ -13,6 +13,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 function InquiryContainer() {
   const location = useLocation();
   const navigate = useNavigate();
+  const handleLinkOnClick = useCallback(() => navigate("/card"), [navigate]);
 
   const { data, refetch, isSuccess, isError } = useQuery(["data"], async () => {
     let year = searchDate.split("-")[0];
@@ -52,14 +53,17 @@ function InquiryContainer() {
   return (
     <Container>
       <Content>
-        <Day
-          type="month"
-          name="day"
-          defaultValue={dateValue}
-          onChange={(e) => {
-            setSearchDate(e.target.value);
-          }}
-        />
+        <Header>
+          <Day
+            type="month"
+            name="day"
+            defaultValue={dateValue}
+            onChange={(e) => {
+              setSearchDate(e.target.value);
+            }}
+          />
+          <NextBtn onClick={handleLinkOnClick}>카드 조회</NextBtn>
+        </Header>
         <Table>
           <thead>
             <HRow>
@@ -118,8 +122,12 @@ const Content = styled.div`
   top: 50px;
 `;
 
-const Day = styled.input`
+const Header = styled.div`
+  display: flex;
   margin-bottom: 50px;
+`;
+
+const Day = styled.input`
   width: 400px;
   font-style: normal;
   font-weight: 700;
@@ -131,6 +139,21 @@ const Day = styled.input`
   &::-webkit-calendar-picker-indicator {
     background: url(${Calendar});
   }
+`;
+
+const NextBtn = styled.button`
+  margin-left: 20px;
+  width: 200px;
+  height: 70px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  text-align: center;
+  color: #FFFFFF;
+  background: #389DF9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 35px;
+  border: none;
 `;
 
 const Table = styled.table`
