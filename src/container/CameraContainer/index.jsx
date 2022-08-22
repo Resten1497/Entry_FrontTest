@@ -6,15 +6,25 @@ import { useMutation } from "@tanstack/react-query";
 import sendCardData from "../../api/sendCardData";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useLocation } from "react-router-dom";
+import sendVisitorData from "../../api/sendVisitorData";
 
 const CameraContainer = () => {
   const [cardId, setCardId] = useState(null);
+  const location = useLocation();
   const [iscompleted, setIscompleted] = useState(false);
-
-  const navigate = useNavigate();
-  const handleLinkOnClick = (cardId) => navigate("/regist", { state: cardId });
-  let ref = useRef();
   const toastId = useRef(null);
+  const navigate = useNavigate();
+  let ref = useRef();
+  let locationData = location.state;
+
+  const handleLinkOnClick = async (cardId) => {
+    let sendResult = await sendVisitorData({ ...locationData, cardId });
+    console.log(sendResult);
+    if (sendResult.status == 200) {
+      navigate("/complete", { state: sendResult.data });
+    }
+  };
   const notify = () =>
     (toastId.current = toast("인식중입니다.", {
       type: toast.loading,

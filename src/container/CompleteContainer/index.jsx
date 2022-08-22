@@ -11,18 +11,17 @@ function CompleteContainer() {
   const handleLinkOnClick = useCallback(() => navigate("/"), [navigate]);
   const handleKeyDown = (e) => {
     if (e.keyCode === "13") {
-      console.log('enter');
+      console.log("enter");
       handleLinkOnClick();
     }
   };
-
   return (
-    <Container onClick={handleLinkOnClick} >
+    <Container onClick={handleLinkOnClick}>
       <Animation />
       <Title>
         입장 절차가 완료되었습니다!
         <br />
-        안녕하세요!
+        {location.state}님 안녕하세요!
       </Title>
       <Btn autoFocus onKeyDown={handleKeyDown}></Btn>
     </Container>
@@ -30,7 +29,7 @@ function CompleteContainer() {
 }
 
 const Container = styled.div`
-  width:100vw;
+  width: 100vw;
   height: 100vh;
   margin: 0 auto;
   display: flex;

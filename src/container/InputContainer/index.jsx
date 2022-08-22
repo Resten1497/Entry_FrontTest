@@ -1,7 +1,7 @@
 import NextBtn from "../../components/buttonComponent/index";
 import React, { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import sendVisitorData from "../../api/sendVisitorData";
 import styled from "styled-components";
 
@@ -10,23 +10,16 @@ function InputContainer() {
     window.scrollTo(0, 0);
   }, []);
 
-  const location = useLocation();
-  console.log("state", location.state);
-  const { cardId } = location.state;
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const handleLinkOnClick = (visitorName) =>
-    navigate("/complete", { state: visitorName });
+  const handleLinkOnClick = (data) => navigate("/camera", { state: data });
 
-  const onSubmit = async (data) => {
-    let sendResult = await sendVisitorData(data);
-    if (sendResult.data == true) {
-      handleLinkOnClick(data.visitorName);
-    }
+  const onSubmit = (data) => {
+    handleLinkOnClick(data);
   };
   const handleKeyDown = (e) => {
     if (e.keyCode === "13") {
@@ -140,17 +133,9 @@ function InputContainer() {
                 "개인정보수집에 동의해주세요"}
             </Error>
           </Lable>
-          <input
-            {...register("cardId", {
-              required: true,
-            })}
-            type="hidden"
-            value={location.state}
-            name="cardId"
-          />
 
           <Btn>
-            <NextBtn onClick={null} onKeyDown={handleKeyDown} />
+            <NextBtn onKeyDown={handleKeyDown} />
           </Btn>
         </Form>
       </Content>

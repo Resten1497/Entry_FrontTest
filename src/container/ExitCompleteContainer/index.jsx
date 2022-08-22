@@ -2,24 +2,26 @@ import Animation from "../../components/animation";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
-
+import { useLocation } from "react-router-dom";
 function ExitCompleteContainer() {
   const navigate = useNavigate();
-  const handleLinkOnClick = useCallback(() => navigate("/main"), [navigate]);
+  const location = useLocation();
+
+  const handleLinkOnClick = useCallback(() => navigate("/"), [navigate]);
   const handleKeyDown = (e) => {
     if (e.keyCode === "13") {
-      console.log('enter');
+      console.log("enter");
       handleLinkOnClick();
     }
   };
 
   return (
-    <Container onClick={handleLinkOnClick} >
+    <Container onClick={handleLinkOnClick}>
       <Animation />
       <Title>
         퇴실 절차가 완료되었습니다!
         <br />
-        안녕히가세요!
+        {location.state}님 안녕히가세요!
       </Title>
       <Btn autoFocus onKeyDown={handleKeyDown}></Btn>
     </Container>
