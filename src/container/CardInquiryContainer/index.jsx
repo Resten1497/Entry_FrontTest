@@ -49,7 +49,7 @@ function CardInquiryContainer(){
                             <Lost>-</Lost>
                             <Final>2022-08-06</Final> 
                             <Return>-</Return>
-                        </Tr>
+                        </Tr> 
                         <Tr>
                             <Number>3</Number>
                             <Id>sdhs003</Id>
