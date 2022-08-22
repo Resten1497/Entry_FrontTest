@@ -6,7 +6,7 @@ import { useCallback } from "react";
 
 function IntroduceContainer() {
   const navigate = useNavigate();
-  const handleLinkOnClick = useCallback(() => navigate("/camera"), [navigate]);
+  const handleLinkOnClick = useCallback(() => navigate("/regist"), [navigate]);
   const handleKeyDown = (e) => {
     if (e.keyCode === "13") {
       handleLinkOnClick();
@@ -14,7 +14,7 @@ function IntroduceContainer() {
   };
   return (
     <Container>
-        <Content>
+      <Content>
         <div>
           <Logo src={logo} alt="schoolLogo" />
           <MainText>

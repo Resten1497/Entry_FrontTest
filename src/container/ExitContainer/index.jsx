@@ -7,14 +7,15 @@ import sendExitData from "../../api/sendExitData";
 const ExitContainer = () => {
   const [cardId, setCardId] = useState(null);
   const navigate = useNavigate();
-  const handleLinkOnClick = () => navigate("/exitcomplete");
+  const handleLinkOnClick = (data) =>
+    navigate("/exitcomplete", { state: data });
   let ref = useRef();
   const { mutate, isLoading, isError, error, isSuccess } = useMutation(
     sendExitData,
     {
-      onSuccess: () => {
+      onSuccess: (data) => {
         console.log("success");
-        handleLinkOnClick();
+        handleLinkOnClick(data.data);
         ref.current.stopCamera();
       },
     }
