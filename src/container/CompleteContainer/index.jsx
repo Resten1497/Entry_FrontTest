@@ -21,7 +21,7 @@ function CompleteContainer() {
       <Title>
         입장 절차가 완료되었습니다!
         <br />
-        {location.state}님 안녕하세요!
+        안녕하세요!
       </Title>
       <Btn autoFocus onKeyDown={handleKeyDown}></Btn>
     </Container>
