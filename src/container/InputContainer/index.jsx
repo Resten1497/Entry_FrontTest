@@ -1,14 +1,44 @@
 import NextBtn from "../../components/buttonComponent/index";
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import sendVisitorData from "../../api/sendVisitorData";
 import styled from "styled-components";
 
 function InputContainer() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const[phoneValue, setPhoneValue] = useState();
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
+
+  const [values, setValues] = useState({
+    visitorPhoneNumber: ''
+  });
+
+const { visitorPhoneNumber } = values;
+
+  const handleNumber = e => {
+    const { value, name } = e.target;
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+useEffect(() => {
+    if (visitorPhoneNumber.length === 11) {
+      setValues({
+        visitorPhoneNumber: visitorPhoneNumber.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3'),
+      });
+    } else if (visitorPhoneNumber.length === 13) {
+      setValues({
+        visitorPhoneNumber: visitorPhoneNumber
+          .replace(/-/g, '')
+          .replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3'),
+      });
+    }
+  }, [visitorPhoneNumber]);
 
   const {
     register,
@@ -26,6 +56,7 @@ function InputContainer() {
       handleLinkOnClick();
     }
   };
+
   return (
     <Container>
       <Content>
@@ -50,17 +81,19 @@ function InputContainer() {
             <Title>전화번호</Title>
             <StyledInput
               type="text"
+              onChange={handleNumber}
+              value={visitorPhoneNumber || ''}
               name="visitorPhoneNumber"
               placeholder="010-8888-8888"
               autoComplete="off"
-              {...register("visitorPhoneNumber", {
-                required: true,
-                // pattern: /^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/,
-                pattern: {
-                  value: /^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/,
-                  message: "전화번호 입력을 다시 확인해주세요",
-                },
-              })}
+              // {...register("visitorPhoneNumber", {
+              //   required: true,
+              //   pattern: /^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/,
+              //   pattern: {
+              //     value: /^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/,
+              //     message: "전화번호 입력을 다시 확인해주세요",
+              //   },
+              // })}
             />
             <Error>
               {errors.visitorPhoneNumber?.type === "required" &&

@@ -29,6 +29,7 @@ function InquiryContainer() {
     );
     return data;
   });
+  
   const day = new Date();
   const year = String(day.getFullYear());
   let first = String(day.getMonth() + 1).split("");

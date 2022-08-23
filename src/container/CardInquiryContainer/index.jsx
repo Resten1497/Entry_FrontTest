@@ -1,63 +1,82 @@
 import React, { useState, useEffect, useCallback } from "react";
+import {
+    QueryClientProvider,
+    QueryClient,
+    useQuery,
+  } from "@tanstack/react-query";
 import styled from 'styled-components';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ReturnBtn from '../../components/ReturnComponent';
+import qs from "qs";
 // 토큰
-// 토큰
-// 토큰
-// 토큰
-// 토큰
-// 토큰
-// 토큰
-// 토큰
-
 
 function CardInquiryContainer(){
     const navigate = useNavigate();
     const handleLinkOnClick = useCallback(() => navigate("/inquiry"), [navigate]);
+
+    const { data, refetch, isSuccess, isError } = useQuery(["data"], async () => {
+        const { data } = await axios.post(
+          "https://entrylist.herokuapp.com/qrCode/lookupQrcode",
+          {
+            headers: { "content-type": "application/x-www-form-urlencoded" },
+          }
+        );
+        return data;
+      });
+
+      console.log(data)
+
     return(
         <Container>
             <Content>
                 <Header>
-                    <Card>월간 조회</Card>
-                    <NextBtn onClick={handleLinkOnClick}>카드 조회</NextBtn>
+                    <Card>카드 조회</Card>
+                    <NextBtn onClick={handleLinkOnClick}>월간 조회</NextBtn>
                 </Header>
                 <Table>
                     <Thead>
                         <Tr>
                             <Number>번호</Number>
                             <Id>카드ID</Id>
-                            <Wearing>착용여부</Wearing>
+                            <Wearing>사용여부</Wearing>
                             <Lost>분실여부</Lost>
                             <Final>최종착용날짜</Final>
                             <Return>반납여부</Return>
                         </Tr>
                     </Thead>
                     <Tbody>
-                        <Tr>
-                            <Number>1</Number>
-                            <Id>sdhs001</Id>
-                            <Wearing>-</Wearing>
-                            <Lost>o</Lost>
-                            <Final>2022-08-06</Final> 
-                            <Return><ReturnBtn/></Return>
-                        </Tr>
-                        <Tr>
-                            <Number>2</Number>
-                            <Id>sdhs002</Id>
-                            <Wearing>o</Wearing>
-                            <Lost>-</Lost>
-                            <Final>2022-08-06</Final> 
-                            <Return>-</Return>
-                        </Tr> 
-                        <Tr>
-                            <Number>3</Number>
-                            <Id>sdhs003</Id>
-                            <Wearing>-</Wearing>
-                            <Lost>o</Lost>
-                            <Final>2022-08-06</Final> 
-                            <Return>-</Return>
-                        </Tr>
+                        {isSuccess ? (
+                        data.map((item, index) => {
+                            if(item.exitTime == null){
+                            item.exitTime = '-'
+                            }
+
+                            if(item.isActive = true){
+                                item.isActive = "-"
+                            } else{
+                                item.isActive = "o"
+                            }
+                            if(item.isLost = true){
+                                item.isLost = "-"
+                            } else{
+                                item.isLost = "o"
+                            }
+
+                            return (
+                                <Tr>
+                                    <Number>{index + 1}</Number>
+                                    <Id>{item.originalCode}</Id>
+                                    <Wearing>{item.isActive}</Wearing>
+                                    <Lost>{item.isLost}</Lost>
+                                    <Final>2022-08-06</Final> 
+                                    <Return><ReturnBtn/></Return>
+                                </Tr>
+                                );
+                            })
+                        ) : (
+                            <tr></tr>
+                        )}
                     </Tbody>
                 </Table>
             </Content>
