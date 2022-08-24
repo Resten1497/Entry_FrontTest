@@ -2,11 +2,11 @@ import Animation from "../../components/animation";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
-// import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function CompleteContainer() {
-  // const location = useLocation();
-  // console.log(location);
+  const location = useLocation();
+  console.log(location);
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/"), [navigate]);
   const handleKeyDown = (e) => {
@@ -21,7 +21,7 @@ function CompleteContainer() {
       <Title>
         입장 절차가 완료되었습니다!
         <br />
-        안녕하세요!
+        {location.state}님 안녕하세요!
       </Title>
       <Btn autoFocus onKeyDown={handleKeyDown}></Btn>
     </Container>

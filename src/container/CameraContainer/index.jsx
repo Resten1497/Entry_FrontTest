@@ -22,7 +22,7 @@ const CameraContainer = () => {
     let sendResult = await sendVisitorData({ ...locationData, cardId });
     console.log(sendResult);
     if (sendResult.status == 200) {
-      navigate("/complete", { state: sendResult.data });
+      navigate("/complete", { state: locationData.visitorName});
     }
   };
   const notify = () =>
