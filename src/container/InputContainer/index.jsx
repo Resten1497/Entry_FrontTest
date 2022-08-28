@@ -3,13 +3,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
+import sendVisitorData from "../../api/sendVisitorData";
 function InputContainer() {
   const [phoneValue, setPhoneValue] = useState();
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
 
   const [visitorPhoneNumber, setVisitorPhoneNumber] = useState("");
 
@@ -38,7 +34,13 @@ function InputContainer() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const handleLinkOnClick = (data) => navigate("/camera", { state: data });
+  const handleLinkOnClick = async (data) => {
+    let sendResult = await sendVisitorData({ ...data });
+    console.log(sendResult);
+    if (sendResult.status == 200) {
+      navigate("/complete", { state: data.visitorName });
+    }
+  };
 
   const onSubmit = (data) => {
     handleLinkOnClick(data);

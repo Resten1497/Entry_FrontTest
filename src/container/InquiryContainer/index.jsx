@@ -13,7 +13,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 function InquiryContainer() {
   const location = useLocation();
   const navigate = useNavigate();
-  const handleLinkOnClick = useCallback(() => navigate("/card"), [navigate]);
+  //const handleLinkOnClick = useCallback(() => navigate("/card"), [navigate]);
 
   const { data, refetch, isSuccess, isError } = useQuery(["data"], async () => {
     let year = searchDate.split("-")[0];
@@ -29,7 +29,7 @@ function InquiryContainer() {
     );
     return data;
   });
-  
+
   const day = new Date();
   const year = String(day.getFullYear());
   let first = String(day.getMonth() + 1).split("");
@@ -63,7 +63,7 @@ function InquiryContainer() {
               setSearchDate(e.target.value);
             }}
           />
-          <NextBtn onClick={handleLinkOnClick}>카드 조회</NextBtn>
+          {/* <NextBtn onClick={handleLinkOnClick}>카드 조회</NextBtn> */}
         </Header>
         <Table>
           <thead>
@@ -74,14 +74,14 @@ function InquiryContainer() {
               <Phone>전화번호</Phone>
               <Reason>방문목적</Reason>
               <InTime>입실시간</InTime>
-              <OutTime>퇴실시간</OutTime>
+              {/* <OutTime>퇴실시간</OutTime> */}
             </HRow>
           </thead>
           <tbody>
             {isSuccess ? (
               data.map((item, index) => {
-                if(item.exitTime == null){
-                  item.exitTime = '-'
+                if (item.exitTime == null) {
+                  item.exitTime = "-";
                 }
                 return (
                   <React.Fragment key={index}>
@@ -94,7 +94,7 @@ function InquiryContainer() {
                       <Phone>{item.visitorPhoneNumber}</Phone>
                       <Reason>{item.visitorReason}</Reason>
                       <InTime>{item.entranceTime}</InTime>
-                      <OutTime>{item.exitTime}</OutTime>
+                      {/* <OutTime>{item.exitTime}</OutTime> */}
                     </Row>
                   </React.Fragment>
                 );
@@ -150,8 +150,8 @@ const NextBtn = styled.button`
   font-weight: 500;
   font-size: 28px;
   text-align: center;
-  color: #FFFFFF;
-  background: #389DF9;
+  color: #ffffff;
+  background: #389df9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 35px;
   border: none;

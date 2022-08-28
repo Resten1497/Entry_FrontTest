@@ -9,23 +9,22 @@ function CompleteContainer() {
   console.log(location);
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/"), [navigate]);
-  const handleKeyDown = (e) => {
-    if (e.keyCode === "13") {
-      console.log("enter");
-      handleLinkOnClick();
-    }
-  };
+  // const handleKeyDown = (e) => {
+  //   if (e.keyCode === "13") {
+  //     console.log("enter");
+  //     handleLinkOnClick();
+  //   }
+  // };
   return (
-    <Container onClick={handleLinkOnClick}>
+    <Container>
       <Animation />
       <Title>
         입장 절차가 완료되었습니다!
         <br />
         안녕하세요! {location.state}님
-        <br/>
-        이 화면을 관리자분께 보여주시고 명찰을 받아 가세요! 
+        <br />이 화면을 관리자분께 보여주시고 명찰을 받아 가세요!
       </Title>
-      <Btn autoFocus onKeyDown={handleKeyDown}></Btn>
+      {/* <Btn autoFocus onKeyDown={handleKeyDown}></Btn> */}
     </Container>
   );
 }
