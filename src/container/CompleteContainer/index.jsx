@@ -22,7 +22,9 @@ function CompleteContainer() {
         입장 절차가 완료되었습니다!
         <br />
         안녕하세요! {location.state}님
-        <br />이 화면을 관리자분께 보여주시고 명찰을 받아 가세요!
+        <br/>
+        <br />관리자분께 이 화면을 보여주시고 
+        <br />명찰을 받아 가세요!
       </Title>
       {/* <Btn autoFocus onKeyDown={handleKeyDown}></Btn> */}
     </Container>
@@ -32,7 +34,6 @@ function CompleteContainer() {
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +42,7 @@ const Container = styled.div`
 
 const Title = styled.p`
   font-weight: 400;
-  font-size: 28px;
+  font-size: 1.2rem;
   text-align: center;
   color: #52525c;
 `;

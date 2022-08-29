@@ -36,10 +36,13 @@ const Container = styled.div`
 const Text = styled.p`
   font-style: normal;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 1.8rem;
   line-height: 38px;
   text-align: center;
   color: rgba(0, 0, 0, 0.25);
+  @media (max-width: 280px) {
+  font-size: 1.5rem;
+  }
 `;
 
 const Btn = styled.button`

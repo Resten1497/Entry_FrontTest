@@ -37,7 +37,7 @@ const Container = styled.div`
   height: 100vh;
   @media (max-width: 310px) {
     width: 300px;
-    height: 100vh;
+    height: 150vh;
   }
 `;
 
