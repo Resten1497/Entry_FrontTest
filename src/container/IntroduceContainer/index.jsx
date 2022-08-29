@@ -14,8 +14,8 @@ function IntroduceContainer() {
   };
   return (
     <Container>
-      <Content>
-        <div>
+      <Main>
+        <Content>
           <Logo src={logo} alt="schoolLogo" />
           <MainText>
             서울디지텍고등학교에
@@ -23,50 +23,64 @@ function IntroduceContainer() {
             오신것을 환영합니다.
           </MainText>
           <SubText>신분확인을 위해 몇가지를 작성해주세요!!</SubText>
-        </div>
+        </Content>
         <Btn>
           <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
         </Btn>
-      </Content>
+      </Main>
     </Container>
   );
 }
 
 const Container = styled.div`
-  width: 500px;
+  overflow: hidden;
+  width: 100vw;
   height: 100vh;
-  margin: 0 auto;
+  @media (max-width: 310px) {
+    width: 300px;
+    height: 100vh;
+  }
 `;
 
-const Content = styled.div`
+const Main = styled.div`
   width: 100%;
   height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 1px solid #000;
+`;
+
+const Content =styled.div`
+  margin-left: 10px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const Logo = styled.img`
-  width: 131px;
+  width: 100px;
   margin-bottom: 32px;
 `;
 
 const MainText = styled.h1`
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 600;
   padding-bottom: 18px;
 `;
 
 const SubText = styled.p`
-  font-size: 1.4em;
+  font-size: 1em;
   font-weight: 400;
 `;
 
 const Btn = styled.div`
-  margin: 50px 0 50px 0;
-  position: relative;
-  left: 125px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
 `;
 
 export default IntroduceContainer;

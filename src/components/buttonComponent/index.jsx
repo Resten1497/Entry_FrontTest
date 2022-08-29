@@ -12,9 +12,10 @@ function Button(props) {
 }
 
 const NextBtn = styled.button`
+  margin-right: 10px;
   border: none;
-  width: 153px;
-  height: 63px;
+  width: 120px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,7 +24,7 @@ const NextBtn = styled.button`
   border-radius: 30px;
   font-style: normal;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 24px;
   &:focus {
     outline: none;
   }
@@ -36,6 +37,7 @@ const Title = styled.span`
 `;
 
 const Img = styled.img`
+  width: 40px;
   padding: 0 0 0 5px;
 `;
 
