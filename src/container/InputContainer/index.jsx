@@ -126,7 +126,7 @@ function InputContainer() {
           <Lable>
             <Title>체온</Title>
             <StyledInput
-              type="text"
+              type="number"
               name="temperature"
               placeholder="36.5"
               autoComplete="off"
