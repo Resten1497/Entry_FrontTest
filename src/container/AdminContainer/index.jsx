@@ -39,18 +39,17 @@ function AdminContainer() {
           <label>
             <PswTitle>비밀번호</PswTitle>
             <Password
-              ref={ref}
+              // ref={ref}
               type="password"
-              name="password"
+              name="adminKey"
               placeholder="비밀번호를 입력해주세요"
-              
               autoComplete="off"
               {...register("adminKey", {
                 required: true,
               })}
             />
             <Error>
-              {errors.password?.type === "required" &&
+              {errors.adminKey?.type === "required" &&
                 "비밀번호를 입력해주세요!"}
             </Error>
           </label>
@@ -62,40 +61,46 @@ function AdminContainer() {
 }
 
 const Container = styled.div`
-  width: 500px;
+  width: 100vw;
   height: 100vh;
-  margin: 0 auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 300px) {
+    width: 300px;
+    height: 100vh;
+  }
 `;
 
 const Content = styled.div`
+  width: 500px;
+  height: 700px;
   margin: 0 auto;
-  width: 400px;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 `;
 
 const Logo = styled.img`
   margin-bottom: 32px;
-  width: 131px;
+  width: 100px;
 `;
 
 const Title = styled.h1`
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: #000000;
+  @media (max-width: 300px) {
+  font-size: 3rem;
+  }
 `;
 
 const PswTitle = styled.p`
@@ -104,11 +109,14 @@ const PswTitle = styled.p`
   font-weight: 400;
   font-size: 1.5rem;
   color: #52525c;
+  @media (max-width: 300px) {
+  font-size: 1.5rem;
+  }
 `;
 
 const Password = styled.input`
-  width: 365px;
-  height: 70px;
+  width: 300px;
+  height: 50px;
   background: #ffffff;
   border: 2px solid #d9d9d9;
   border-radius: 8px;
@@ -122,13 +130,19 @@ const Password = styled.input`
     font-size: 26px;
     color: #52525c;
     opacity: 0.5;
+    @media (max-width: 300px) {
+      font-size: 20px;
+  }
+  }
+  @media (max-width: 300px) {
+    width: 250px;
   }
 `;
 
 const NextBtn = styled.button`
   margin-top: 20px;
-  width: 313px;
-  height: 62px;
+  width: 200px;
+  height: 50px;
   background: #5686e1;
   border: none;
   border-radius: 30px;

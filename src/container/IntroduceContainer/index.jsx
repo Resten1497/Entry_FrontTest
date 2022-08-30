@@ -33,28 +33,26 @@ function IntroduceContainer() {
 }
 
 const Container = styled.div`
-  overflow: hidden;
   width: 100vw;
   height: 100vh;
   @media (max-width: 310px) {
     width: 300px;
-    height: 100vh;
+    height: 150vh;
   }
 `;
 
 const Main = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 500px;
+  height: 120%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  border: 1px solid #000;
+  align-items: center;
+  justify-content: space-around;
 `;
 
-const Content =styled.div`
-  margin-left: 10px;
-  width: 100%;
+const Content = styled.div`
+  // width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -67,20 +65,20 @@ const Logo = styled.img`
 `;
 
 const MainText = styled.h1`
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: 600;
   padding-bottom: 18px;
 `;
 
 const SubText = styled.p`
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: 400;
 `;
 
 const Btn = styled.div`
-  width: 600px;
+  width: 350px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 `;
 
 export default IntroduceContainer;
