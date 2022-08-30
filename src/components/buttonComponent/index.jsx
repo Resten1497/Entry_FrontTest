@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Next from "../../assets/images/NextPage.png";
+import Next from "../../assets/images/NextPage.svg";
 
 function Button(props) {
   return (
