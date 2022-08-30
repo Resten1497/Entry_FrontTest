@@ -169,11 +169,7 @@ function InputContainer() {
 
 const Container = styled.div`
   width: 100vw;
-  height: 120vh;
-  display: flex;
-  align-content: center;
-  flex-direction: column;
-  justify-content: center;
+  height: 100vh;
 
   @media (max-width: 310px) {
     width: 300px;
