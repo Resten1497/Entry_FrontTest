@@ -43,7 +43,7 @@ const Container = styled.div`
 
 const Main = styled.div`
   width: 500px;
-  height: 100%;
+  height: 120%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@ const Main = styled.div`
 `;
 
 const Content = styled.div`
-  width: 80%;
+  // width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
