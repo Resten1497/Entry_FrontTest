@@ -51,7 +51,7 @@ const Main = styled.div`
   justify-content: space-around;
 `;
 
-const Content =styled.div`
+const Content = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -76,7 +76,7 @@ const SubText = styled.p`
 `;
 
 const Btn = styled.div`
-  width: 300px;
+  width: 350px;
   display: flex;
   justify-content: flex-end;
 `;
