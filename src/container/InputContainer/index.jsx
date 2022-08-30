@@ -191,7 +191,7 @@ const Form = styled.form`
 `;
 
 const Lable = styled.label`
-  height: 125px;
+  height: 145px;
 `;
 
 const Title = styled.p`
