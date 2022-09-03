@@ -125,6 +125,22 @@ function InputContainer() {
           </Error>
         </Lable>
         <Lable>
+          <Title>방문선생님</Title>
+          <StyledInput
+            type="text"
+            name="visitorPerson"
+            placeholder="방문하실 선생님 성함"
+            autoComplete="off"
+            {...register("visitorPerson", {
+              required: true,
+            })}
+          />
+          <Error>
+            {errors.visitorPerson?.type === "required" &&
+              "방문하실 선생님 성함을 입력해주세요!"}
+          </Error>
+        </Lable>
+        <Lable>
           <Title>체온</Title>
           <StyledInput
             type="text"
@@ -187,7 +203,7 @@ const Form = styled.form`
 `;
 
 const Lable = styled.label`
-  height: 125px;
+  height: 130px;
 `;
 
 const Title = styled.p`
