@@ -17,13 +17,15 @@ function CompleteContainer() {
   // };
   return (
     <Container>
-      <Animation />
+      
       <Title>
         입장 절차가 완료되었습니다!
         <br />
         안녕하세요! {location.state}님
-        <br/>
-        <br />관리자분께 이 화면을 보여주시고 
+      </Title>
+        <Animation />
+      <Title>
+        관리자분께 이 화면을 보여주시고 
         <br />명찰을 받아 가세요!
       </Title>
       {/* <Btn autoFocus onKeyDown={handleKeyDown}></Btn> */}
@@ -42,7 +44,7 @@ const Container = styled.div`
 
 const Title = styled.p`
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-align: center;
   color: #52525c;
 `;
