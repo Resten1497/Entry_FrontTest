@@ -33,7 +33,9 @@ function IntroduceContainer() {
 }
 
 const Container = styled.div`
+  width: 100vw;
   height: 100vh;
+  overflow: hidden;
   @media (max-width: 310px) {
     width: 300px;
     height: 150vh;
@@ -41,7 +43,7 @@ const Container = styled.div`
 `;
 
 const Main = styled.div`
-  width: 500px;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -51,7 +53,6 @@ const Main = styled.div`
 `;
 
 const Content = styled.div`
-  // width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
