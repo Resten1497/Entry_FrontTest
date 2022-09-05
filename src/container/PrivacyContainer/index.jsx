@@ -111,7 +111,7 @@ const LabelContent = styled.div`
 `;
 const Main = styled.div`
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -137,7 +137,7 @@ const Content = styled.div`
 const TableContent = styled.div`
   display: flex;
   width: 90vw;
-  height: 20vh;
+  height: 25vh;
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 30px;
