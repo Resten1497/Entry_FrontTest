@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 
 function Privacy() {
+  const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
   const handleLinkOnClick = useCallback(() => {
     if (ref.current.checked) {
       navigate("/regist");
     } else {
-      alert("개인정보 수집 및 이용에 동의해주세요.");
+      setIsError(true);
     }
   }, [navigate]);
   const handleKeyDown = (e) => {
@@ -54,6 +55,7 @@ function Privacy() {
             <CheckBox type="checkbox" autoFocus name="privacyLabal" ref={ref} />
             <PrivacyText>개인정보수집에 동의합니다.</PrivacyText>
           </PrivacyLabal>
+          {isError && <ErrorText>필수 항목입니다.</ErrorText>}
         </LabelContent>
         <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
       </Main>
@@ -146,7 +148,13 @@ const SubText = styled.p`
   font-size: 0.9em;
   word-break: keep-all;
 `;
-
+const ErrorText = styled.p`
+  font-size: 0.9em;
+  word-break: keep-all;
+  color: red;
+  margin-top: 5px;
+  text-align: center;
+`;
 const SubTitle = styled.h2`
   font-size: 1.4em;
   font-weight: 600;
