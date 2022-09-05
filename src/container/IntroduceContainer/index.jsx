@@ -2,12 +2,9 @@ import logo from "../../assets/images/schoolLogo.png";
 import NextBtn from "../../components/buttonComponent/index";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 
 function IntroduceContainer() {
-  useEffect(() => {
-    document.body.style.zoom = "100%";
-  });
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/regist"), [navigate]);
   const handleKeyDown = (e) => {
