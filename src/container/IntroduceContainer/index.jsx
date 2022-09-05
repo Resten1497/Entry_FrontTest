@@ -6,7 +6,7 @@ import { useCallback } from "react";
 
 function IntroduceContainer() {
   const navigate = useNavigate();
-  const handleLinkOnClick = useCallback(() => navigate("/regist"), [navigate]);
+  const handleLinkOnClick = useCallback(() => navigate("/privacy"), [navigate]);
   const handleKeyDown = (e) => {
     if (e.keyCode === "13") {
       handleLinkOnClick();
