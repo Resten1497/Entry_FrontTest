@@ -68,6 +68,9 @@ export default Privacy;
 const TableBody = styled.tbody``;
 const TableTr = styled.tr``;
 const TableTh = styled.th`
+  @media (min-width: 481px) {
+    width: 170px;
+  }
   background: #9b9b9b;
   padding: 3px;
   width: 120px;
@@ -94,21 +97,20 @@ const OptionalLabel = styled.p`
   height: 40px;
   text-align: center;
   word-break: keep-all;
+  @media (min-width: 481px) {
+    width: 15vw;
+  }
 `;
 const Container = styled.div`
   width: 100vw;
   height: 90vh;
   overflow: hidden;
-  @media (max-width: 310px) {
-    width: 100vw;
-    height: 100vh;
-  }
 `;
 const LabelContent = styled.div`
   height: 10vh;
 `;
 const Main = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -127,13 +129,16 @@ const Content = styled.div`
   flex-direction: column;
   line-height: 1.5;
   justify-content: center;
-  align-items: flex-start;
+
+  @media (min-width: 481px){
+    width: 20vw;
+  }
 `;
 const TableContent = styled.div`
   display: flex;
   width: 90vw;
   height: 20vh;
-
+  justify-content: center;
   align-items: flex-end;
   padding-bottom: 30px;
 `;
