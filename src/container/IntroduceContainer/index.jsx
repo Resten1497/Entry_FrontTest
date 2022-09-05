@@ -2,9 +2,12 @@ import logo from "../../assets/images/schoolLogo.png";
 import NextBtn from "../../components/buttonComponent/index";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 function IntroduceContainer() {
+  useEffect(() => {
+    document.body.style.zoom = "100%";
+  });
   const navigate = useNavigate();
   const handleLinkOnClick = useCallback(() => navigate("/regist"), [navigate]);
   const handleKeyDown = (e) => {
@@ -33,7 +36,6 @@ function IntroduceContainer() {
 }
 
 const Container = styled.div`
-  width: 100vw;
   height: 100vh;
   @media (max-width: 310px) {
     width: 300px;
@@ -43,7 +45,7 @@ const Container = styled.div`
 
 const Main = styled.div`
   width: 500px;
-  height: 120%;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
