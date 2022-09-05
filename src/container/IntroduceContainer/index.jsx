@@ -37,8 +37,8 @@ const Container = styled.div`
   height: 100vh;
   overflow: hidden;
   @media (max-width: 310px) {
-    width: 300px;
-    height: 150vh;
+    width: 100vw;
+    height: 100vh;
   }
 `;
 
@@ -62,23 +62,35 @@ const Content = styled.div`
 const Logo = styled.img`
   width: 100px;
   margin-bottom: 32px;
+  @media (max-width: 300px) {
+    width: 80px;
+  }
 `;
 
 const MainText = styled.h1`
-  font-size: 2.5em;
+  font-size: 2.3em;
   font-weight: 600;
   padding-bottom: 18px;
+  @media (max-width: 300px) {
+    font-size: 1.5em;
+  }
 `;
 
 const SubText = styled.p`
   font-size: 1.2em;
   font-weight: 400;
+  @media (max-width: 300px) {
+    font-size: 0.9em;
+  }
 `;
 
 const Btn = styled.div`
   width: 350px;
   display: flex;
   justify-content: flex-end;
+  @media (max-width: 300px) {
+    width: 250px;
+  }
 `;
 
 export default IntroduceContainer;

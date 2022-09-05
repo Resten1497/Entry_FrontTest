@@ -186,10 +186,9 @@ function InputContainer() {
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-
-  @media (max-width: 310px) {
-    width: 300px;
-    height: 150vh;
+  @media (max-width: 540px) {
+    width: 100vw;
+    height: 170vh;
   }
 `;
 
@@ -216,6 +215,9 @@ const Title = styled.p`
 `;
 
 const StyledInput = styled.input`
+  @media (max-width: 300px) {
+    width: 200px;
+  }
   width: 300px;
   height: 50px;
   font-weight: 400;
@@ -237,11 +239,15 @@ const StyledInput = styled.input`
 
 const CheckBox = styled.input`
   margin-right: 15px;
-  width: 26px;
-  height: 26px;
+  width: 25px;
+  height: 25px;
   background: #ffffff;
   &:focus {
     outline: none;
+  }
+  @media (max-width: 300px) {
+    width: 20px;
+    height: 20px;
   }
 `;
 
@@ -250,6 +256,10 @@ const PrivacyLabal = styled.div`
   margin-top: 33px;
   display: flex;
   align-items: center;
+  @media (max-width: 300px) {
+    width: 200px;
+    line-height: 25px;
+  }
 `;
 
 const Privacy = styled.p`
@@ -257,6 +267,9 @@ const Privacy = styled.p`
   font-weight: 400;
   height: 26px;
   font-size: 20px;
+  @media (max-width: 300px) {
+    font-size: 14px;
+  }
 `;
 
 const Btn = styled.div`

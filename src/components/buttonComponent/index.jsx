@@ -28,17 +28,26 @@ const NextBtn = styled.button`
   &:focus {
     outline: none;
   }
+  @media (max-width: 300px) {
+    width: 100px;
+  }
 `;
 
 const Title = styled.span`
   font-style: normal;
   font-weight: 400;
   padding-left: 5px;
+  @media (max-width: 300px) {
+    font-size: 20px;
+  }
 `;
 
 const Img = styled.img`
   width: 40px;
   padding: 0 0 0 5px;
+  @media (max-width: 300px) {
+    width: 30px;
+  }
 `;
 
 export default Button;
