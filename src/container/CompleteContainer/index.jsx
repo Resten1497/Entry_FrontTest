@@ -17,17 +17,17 @@ function CompleteContainer() {
   // };
   return (
     <Container>
-      
+      <Animation />
+
       <Title>
-        입장 절차가 완료되었습니다!
+        {location.state}님!
+        <br /> 입장 절차가 완료되었어요!
+      </Title>
+      <Sub_Title>
+        경비원 아저씨에게 이 화면을 보여주시고
         <br />
-        안녕하세요! {location.state}님
-      </Title>
-        <Animation />
-      <Title>
-        관리자분께 이 화면을 보여주시고 
-        <br />명찰을 받아 가세요!
-      </Title>
+        반드시 명찰을 받아 가세요!
+      </Sub_Title>
       {/* <Btn autoFocus onKeyDown={handleKeyDown}></Btn> */}
     </Container>
   );
@@ -35,7 +35,8 @@ function CompleteContainer() {
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
+  max-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,9 +45,16 @@ const Container = styled.div`
 
 const Title = styled.p`
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-align: center;
   color: #52525c;
+`;
+
+const Sub_Title = styled.p`
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: grey;
 `;
 
 const Btn = styled.button`
