@@ -4,9 +4,13 @@ import Next from "../../assets/images/NextPage.svg";
 
 function Button(props) {
   return (
-    <NextBtn type="submit" autoFocus onClick={props.onClick} onKeyDown={props.onKeyDown}>
+    <NextBtn
+      type="submit"
+      autoFocus
+      onClick={props.onClick}
+      onKeyDown={props.onKeyDown}
+    >
       <Title>다음</Title>
-      <Img src={Next} alt="Next" />
     </NextBtn>
   );
 }
@@ -14,7 +18,7 @@ function Button(props) {
 const NextBtn = styled.button`
   margin-right: 10px;
   border: none;
-  width: 120px;
+  width: 300px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -22,9 +26,10 @@ const NextBtn = styled.button`
   color: #fff;
   background: #5686e1;
   border-radius: 30px;
+  border-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   &:focus {
     outline: none;
   }

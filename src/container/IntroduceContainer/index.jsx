@@ -24,9 +24,7 @@ function IntroduceContainer() {
           </MainText>
           <SubText>신분확인을 위해 몇가지를 작성해주세요!!</SubText>
         </Content>
-        <Btn>
-          <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
-        </Btn>
+        <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
       </Main>
     </Container>
   );

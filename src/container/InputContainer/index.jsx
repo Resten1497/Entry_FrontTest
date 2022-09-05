@@ -55,108 +55,110 @@ function InputContainer() {
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Lable>
-          <Title>이름</Title>
-          <StyledInput
-            type="text"
-            name="visitorName"
-            placeholder="홍길동 "
-            autoComplete="off"
-            {...register("visitorName", {
-              required: true,
-            })}
-          />
-          <Error>
-            {errors.visitorName?.type === "required" && "이름을 입력해주세요!"}
-          </Error>
-        </Lable>
-        <Lable>
-          <Title>전화번호</Title>
-          <StyledInput
-            type="text"
-            name="visitorPhoneNumber"
-            placeholder="010-8888-8888"
-            value={visitorPhoneNumber}
-            autoComplete="off"
-            {...register("visitorPhoneNumber", {
-              required: true,
-              onChange: (e) => {
-                handleNumber(e);
-              },
-            })}
-          />
-          <Error>
-            {errors.visitorPhoneNumber?.type === "required" &&
-              "전화번호를 입력해주세요!"}
-            {errors.visitorPhoneNumber?.message}
-          </Error>
-        </Lable>
-        <Lable>
-          <Title>소속</Title>
-          <StyledInput
-            type="text"
-            name="visitorDivision"
-            placeholder="회사명"
-            autoComplete="off"
-            {...register("visitorDivision", {
-              required: true,
-            })}
-          />
-          <Error>
-            {errors.visitorDivision?.type === "required" &&
-              "소속을 입력해주세요!"}
-          </Error>
-        </Lable>
-        <Lable>
-          <Title>방문사유</Title>
-          <StyledInput
-            type="text"
-            name="visitorReason"
-            placeholder="강의, 미팅"
-            autoComplete="off"
-            {...register("visitorReason", {
-              required: true,
-            })}
-          />
-          <Error>
-            {errors.visitorReason?.type === "required" &&
-              "방문사유를 입력해주세요!"}
-          </Error>
-        </Lable>
-        <Lable>
-          <Title>방문선생님</Title>
-          <StyledInput
-            type="text"
-            name="visitorPerson"
-            placeholder="방문하실 선생님 성함"
-            autoComplete="off"
-            {...register("visitorPerson", {
-              required: true,
-            })}
-          />
-          <Error>
-            {errors.visitorPerson?.type === "required" &&
-              "방문하실 선생님 성함을 입력해주세요!"}
-          </Error>
-        </Lable>
-        <Lable>
-          <Title>체온</Title>
-          <StyledInput
-            type="text"
-            name="temperature"
-            placeholder="36.5"
-            autoComplete="off"
-            {...register("temperature", {
-              required: true,
-            })}
-          />
-          <Error>
-            {errors.temperature?.type === "required" &&
-              "현재 온도를 입력해주세요!"}
-          </Error>
-        </Lable>
-        <Lable>
+      <Center>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Lable>
+            <Title>이름</Title>
+            <StyledInput
+              type="text"
+              name="visitorName"
+              placeholder="홍길동 "
+              autoComplete="off"
+              {...register("visitorName", {
+                required: true,
+              })}
+            />
+            <Error>
+              {errors.visitorName?.type === "required" &&
+                "이름을 입력해주세요!"}
+            </Error>
+          </Lable>
+          <Lable>
+            <Title>전화번호</Title>
+            <StyledInput
+              type="text"
+              name="visitorPhoneNumber"
+              placeholder="010-8888-8888"
+              value={visitorPhoneNumber}
+              autoComplete="off"
+              {...register("visitorPhoneNumber", {
+                required: true,
+                onChange: (e) => {
+                  handleNumber(e);
+                },
+              })}
+            />
+            <Error>
+              {errors.visitorPhoneNumber?.type === "required" &&
+                "전화번호를 입력해주세요!"}
+              {errors.visitorPhoneNumber?.message}
+            </Error>
+          </Lable>
+          <Lable>
+            <Title>소속</Title>
+            <StyledInput
+              type="text"
+              name="visitorDivision"
+              placeholder="회사명"
+              autoComplete="off"
+              {...register("visitorDivision", {
+                required: true,
+              })}
+            />
+            <Error>
+              {errors.visitorDivision?.type === "required" &&
+                "소속을 입력해주세요!"}
+            </Error>
+          </Lable>
+          <Lable>
+            <Title>방문사유 / 담당 선생님 성함</Title>
+            <StyledInput
+              type="text"
+              name="visitorReason"
+              placeholder="강의, 미팅 / 담당 선생님 성함"
+              autoComplete="off"
+              {...register("visitorReason", {
+                required: true,
+              })}
+            />
+            <Error>
+              {errors.visitorReason?.type === "required" &&
+                "방문사유를 입력해주세요!"}
+            </Error>
+          </Lable>
+          <Lable>
+            <Title>방문선생님</Title>
+            <StyledInput
+              type="text"
+              name="visitorPerson"
+              placeholder="방문하실 선생님 성함"
+              autoComplete="off"
+              {...register("visitorPerson", {
+                required: true,
+              })}
+            />
+            <Error>
+              {errors.visitorPerson?.type === "required" &&
+                "방문하실 선생님 성함을 입력해주세요!"}
+            </Error>
+          </Lable>
+          <Lable>
+            <Title>체온</Title>
+            <StyledInput
+              type="text"
+              name="temperature"
+              placeholder="36.5"
+              autoComplete="off"
+              {...register("temperature", {
+                required: true,
+              })}
+            />
+            <Error>
+              {errors.temperature?.type === "required" &&
+                "현재 온도를 입력해주세요!"}
+            </Error>
+          </Lable>
+          {/* <Lable>
           <PrivacyLabal>
             <CheckBox
               type="checkbox"
@@ -172,26 +174,29 @@ function InputContainer() {
             {errors.privacyLabal?.type === "required" &&
               "개인정보수집에 동의해주세요"}
           </Error>
-        </Lable>
-        <Lable>
-          <Btn>
+        </Lable> */}
+          <Lable>
             <NextBtn onKeyDown={handleKeyDown} />
-          </Btn>
-        </Lable>
-      </Form>
+          </Lable>
+        </Form>
+      </Center>
     </Container>
   );
 }
 
 const Container = styled.div`
-  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  @media (max-width: 540px) {
-    width: 100vw;
-    height: 170vh;
-  }
 `;
 
+const Center = styled.div`
+  @media (max-width: 450px) {
+    width: 100vw;
+    height: 100vh;
+  }
+`;
 const Form = styled.form`
   width: 100%;
   height: 100%;
@@ -199,7 +204,6 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
 `;
 
 const Lable = styled.label`
@@ -208,9 +212,9 @@ const Lable = styled.label`
 
 const Title = styled.p`
   padding-top: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
   color: #52525c;
 `;
 
@@ -218,7 +222,7 @@ const StyledInput = styled.input`
   @media (max-width: 300px) {
     width: 200px;
   }
-  width: 300px;
+  width: 280px;
   height: 50px;
   font-weight: 400;
   font-size: 20px;
@@ -281,6 +285,7 @@ const Btn = styled.div`
 const Error = styled.p`
   color: #ff6464;
   padding: 5px 0 0 5px;
+  height: 25px;
 `;
 
 export default InputContainer;
