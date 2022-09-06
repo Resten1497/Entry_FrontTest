@@ -126,7 +126,7 @@ function InputContainer() {
                 "방문사유를 입력해주세요!"}
             </Error>
           </Lable>
-          <Lable>
+          {/* <Lable>
             <Title>방문선생님</Title>
             <StyledInput
               type="text"
@@ -141,7 +141,7 @@ function InputContainer() {
               {errors.visitorPerson?.type === "required" &&
                 "방문하실 선생님 성함을 입력해주세요!"}
             </Error>
-          </Lable>
+          </Lable> */}
           <Lable>
             <Title>체온</Title>
             <StyledInput

@@ -26,7 +26,6 @@ const NextBtn = styled.button`
   color: #fff;
   background: #5686e1;
   border-radius: 30px;
-  border-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
