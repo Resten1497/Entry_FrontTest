@@ -69,6 +69,7 @@ function InquiryContainer() {
           <thead>
             <HRow>
               <Number>번호</Number>
+              <CardNumber>카드번호</CardNumber>
               <DateTime>날짜</DateTime>
               <Name>이름</Name>
               <Phone>전화번호</Phone>
@@ -87,9 +88,8 @@ function InquiryContainer() {
                   <React.Fragment key={index}>
                     <Row>
                       <Number>{index + 1}</Number>
-                      <DateTime>
-                        {item.entranceMonth}/{item.entranceDay}
-                      </DateTime>
+                      <CardNumber>{item.pinNumber}</CardNumber>
+                      <DateTime>{item.entranceMonth}/{item.entranceDay}</DateTime>
                       <Name>{item.visitorName}</Name>
                       <Phone>{item.visitorPhoneNumber}</Phone>
                       <Reason>{item.visitorReason}</Reason>
@@ -181,6 +181,15 @@ const Row = styled.tr`
 `;
 
 const Number = styled.td`
+  width: 150px;
+  line-height: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+`;
+
+const CardNumber = styled.td`
   width: 150px;
   line-height: 30px;
   text-align: center;
