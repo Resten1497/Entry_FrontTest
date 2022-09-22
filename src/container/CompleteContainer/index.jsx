@@ -20,13 +20,15 @@ function CompleteContainer() {
       <Animation />
 
       <Title>
-        {location.state}님!
+        {location.state}님
         <br /> 입장 절차가 완료되었어요!
       </Title>
       <Sub_Title>
-        경비원 아저씨에게 이 화면을 보여주시고
+        이 화면을 보여주시고
         <br />
         반드시 명찰을 받아 가세요!
+        <br />
+        퇴실 시 방문증을 반납주세요!
       </Sub_Title>
       {/* <Btn autoFocus onKeyDown={handleKeyDown}></Btn> */}
     </Container>
@@ -44,6 +46,9 @@ const Container = styled.div`
 `;
 
 const Title = styled.p`
+    @media (max-width: 300px) {
+      font-size: 1.5rem;
+  }
   font-weight: 400;
   font-size: 1.8rem;
   text-align: center;

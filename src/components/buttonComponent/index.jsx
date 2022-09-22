@@ -16,6 +16,7 @@ function Button(props) {
 }
 
 const NextBtn = styled.button`
+  margin-top: 20px;
   margin-right: 10px;
   border: none;
   width: 300px;

@@ -50,6 +50,8 @@ function Privacy() {
           귀하께서는 개인정보 수집에 동의하지 않을 권리가 있습니다. 하지만,
           동의하지 않을 경우 입실이 어려움을 알려드립니다.
         </OptionalLabel>
+        <br />
+        <OptionalLabel>동의하신 자료는 목적 이외의 용도로는 사용되지 않습니다.</OptionalLabel>
         <LabelContent>
           <PrivacyLabal>
             <CheckBox type="checkbox" autoFocus name="privacyLabal" ref={ref} />
@@ -98,20 +100,20 @@ const OptionalLabel = styled.p`
   text-align: center;
   word-break: keep-all;
   @media (min-width: 481px) {
-    width: 15vw;
+    width: 70vw;
   }
 `;
 const Container = styled.div`
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden;
 `;
 const LabelContent = styled.div`
   height: 10vh;
 `;
 const Main = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -123,15 +125,15 @@ const Content = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   width: 90vw;
-  letter-spacing:10px
   height: 20vh;
   display: flex;
   flex-direction: column;
   line-height: 1.5;
   justify-content: center;
-
   @media (min-width: 481px){
-    width: 20vw;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
   }
 `;
 const TableContent = styled.div`
@@ -144,14 +146,19 @@ const TableContent = styled.div`
 `;
 
 const MainText = styled.h1`
-  font-size: 1.8em;
+  font-size: 1.5em;
   font-weight: 600;
   padding-bottom: 18px;
 `;
 
 const SubText = styled.p`
+  padding: 0 0 20px 0;
   font-size: 0.9em;
   word-break: keep-all;
+  @media (min-width: 481px) {
+    width: 560px;
+    margin: 0 auto;
+  }
 `;
 const ErrorText = styled.p`
   font-size: 0.9em;
@@ -178,7 +185,7 @@ const CheckBox = styled.input`
 `;
 
 const PrivacyLabal = styled.div`
-  margin-top: 33px;
+  margin-top: 15px;
   display: flex;
   align-items: center;
   @media (max-width: 300px) {
@@ -188,6 +195,11 @@ const PrivacyLabal = styled.div`
 `;
 
 const PrivacyText = styled.p`
+  @media (max-width: 300px) {
+      padding-bottom: 10px;
+      font-size: 14px;
+  }
+  padding-bottom: 5px;
   font-style: normal;
   font-weight: 400;
   height: 15px;

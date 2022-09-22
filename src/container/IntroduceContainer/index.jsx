@@ -22,7 +22,7 @@ function IntroduceContainer() {
             <br />
             오신것을 환영합니다.
           </MainText>
-          <SubText>신분확인을 위해 몇가지를 작성해주세요!!</SubText>
+          <SubText>방문 등록을 위해 다음을 입력해주세요!!</SubText>
         </Content>
         <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
       </Main>
