@@ -38,6 +38,7 @@ function InputContainer() {
   const navigate = useNavigate();
   const handleLinkOnClick = async (data) => {
     let sendResult = await sendVisitorData({ ...data });
+    console.log(data)
     console.log(sendResult);
     if (sendResult.status == 200) {
       navigate("/complete", { state: data.visitorName });
