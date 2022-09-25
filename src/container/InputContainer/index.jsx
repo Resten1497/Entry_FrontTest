@@ -115,7 +115,7 @@ function InputContainer() {
             <StyledInput
               type="text"
               name="visitorDivision"
-              placeholder="회사명"
+              placeholder="소속 학교 / 회사명"
               autoComplete="off"
               {...register("visitorDivision", {
                 required: true,

@@ -26,9 +26,11 @@ function CompleteContainer() {
       <Sub_Title>
         이 화면을 보여주시고
         <br />
-        반드시 명찰을 받아 가세요!
+        명찰을 받아 가세요!
         <br />
-        퇴실 시 방문증을 반납주세요!
+        퇴실 시 방문증을 반납해주세요!
+        <br />
+        교내에서 명창을 꼭 착용해 주세요!
       </Sub_Title>
       {/* <Btn autoFocus onKeyDown={handleKeyDown}></Btn> */}
     </Container>
