@@ -4,6 +4,9 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import sendVisitorData from "../../api/sendVisitorData";
+import HeaderComponent from '../../components/headerComponent';
+import FooterComponent from '../../components/footerComponent';
+
 function InputContainer() {
   const [phoneValue, setPhoneValue] = useState();
 
@@ -57,6 +60,7 @@ function InputContainer() {
   return (
     <Container>
       <Center>
+        <HeaderComponent/>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Lable>
             <Title>카드번호</Title>
@@ -177,10 +181,11 @@ function InputContainer() {
               "개인정보수집에 동의해주세요"}
           </Error>
         </Lable> */}
-          <NextLable>
+          <ButtonLable>
             <NextBtn onKeyDown={handleKeyDown} />
-          </NextLable>
+          </ButtonLable>
         </Form>
+        <FooterComponent/>  
       </Center>
     </Container>
   );
@@ -188,40 +193,37 @@ function InputContainer() {
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 130vh;
 `;
 
 const Center = styled.div`
   @media (max-width: 450px) {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
   }
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 `;
 const Form = styled.form`
   width: 100%;
   height: 100%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 `;
 
 const Lable = styled.label`
-  height: 130px;
 `;
 
-const NextLable = styled.label`
-  height: 130px;
-  margin-top: 30px;
+const ButtonLable = styled.label`
 `;
 
 const Title = styled.p`
-  padding-top: 15px;
   padding-bottom: 5px;
   font-weight: 400;
   font-size: 20px;

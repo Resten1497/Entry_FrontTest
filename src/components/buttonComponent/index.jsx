@@ -16,8 +16,6 @@ function Button(props) {
 }
 
 const NextBtn = styled.button`
-  margin-top: 20px;
-  margin-right: 10px;
   border: none;
   width: 300px;
   height: 50px;
@@ -34,7 +32,7 @@ const NextBtn = styled.button`
     outline: none;
   }
   @media (max-width: 300px) {
-    width: 100px;
+    width: 200px;
   }
 `;
 
@@ -47,12 +45,12 @@ const Title = styled.span`
   }
 `;
 
-const Img = styled.img`
-  width: 40px;
-  padding: 0 0 0 5px;
-  @media (max-width: 300px) {
-    width: 30px;
-  }
-`;
+// const Img = styled.img`
+//   width: 40px;
+//   padding: 0 0 0 5px;
+//   @media (max-width: 300px) {
+//     width: 30px;
+//   }
+// `;
 
 export default Button;

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import NextBtn from "../../components/buttonComponent/index";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
+import HeaderComponent from '../../components/headerComponent';
+import FooterComponent from '../../components/footerComponent';
 
 function Privacy() {
   const [isError, setIsError] = useState(false);
@@ -24,6 +26,7 @@ function Privacy() {
   return (
     <Container>
       <Main>
+        <HeaderComponent/>
         <Content>
           <MainText>개인정보 수집 동의 안내</MainText>
           <SubText>
@@ -52,14 +55,13 @@ function Privacy() {
         </OptionalLabel>
         <br />
         <OptionalLabel>동의하신 자료는 목적 이외의 용도로는 사용되지 않습니다.</OptionalLabel>
-        <LabelContent>
           <PrivacyLabal>
             <CheckBox type="checkbox" autoFocus name="privacyLabal" ref={ref} />
             <PrivacyText>개인정보수집에 동의합니다.</PrivacyText>
           </PrivacyLabal>
           {isError && <ErrorText>필수 항목입니다.</ErrorText>}
-        </LabelContent>
         <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
+        <FooterComponent/>
       </Main>
     </Container>
   );
@@ -106,11 +108,13 @@ const OptionalLabel = styled.p`
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  @media (min-width: 481px) {
+    width: 100vw;
+    height: 110vh;
+  }
 `;
-const LabelContent = styled.div`
-  height: 10vh;
-`;
+
 const Main = styled.div`
   width: 100%;
   height: 100%;
@@ -118,7 +122,7 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 const Content = styled.div`
@@ -148,7 +152,6 @@ const TableContent = styled.div`
 const MainText = styled.h1`
   font-size: 1.5em;
   font-weight: 600;
-  padding-bottom: 18px;
 `;
 
 const SubText = styled.p`
@@ -164,7 +167,6 @@ const ErrorText = styled.p`
   font-size: 0.9em;
   word-break: keep-all;
   color: red;
-  margin-top: 5px;
   text-align: center;
 `;
 const SubTitle = styled.h2`
@@ -186,6 +188,7 @@ const CheckBox = styled.input`
 
 const PrivacyLabal = styled.div`
   margin-top: 15px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   @media (max-width: 300px) {
