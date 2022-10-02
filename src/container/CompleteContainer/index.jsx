@@ -30,7 +30,7 @@ function CompleteContainer() {
         <br />
         퇴실 시 방문증을 반납해주세요!
         <br />
-        교내에서 명창을 꼭 착용해 주세요!
+        교내에서 명찰을 꼭 착용해 주세요!
       </Sub_Title>
       {/* <Btn autoFocus onKeyDown={handleKeyDown}></Btn> */}
     </Container>
