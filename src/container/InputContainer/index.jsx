@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import sendVisitorData from "../../api/sendVisitorData";
-import HeaderComponent from '../../components/headerComponent';
-import FooterComponent from '../../components/footerComponent';
+import HeaderComponent from "../../components/headerComponent";
+import FooterComponent from "../../components/footerComponent";
 
 function InputContainer() {
   const [phoneValue, setPhoneValue] = useState();
@@ -18,6 +18,7 @@ function InputContainer() {
   };
   useEffect(() => {
     document.body.style.zoom = "100%";
+    window.scroll(0, 0);
   });
   useEffect(() => {
     if (visitorPhoneNumber.length == 11) {
@@ -41,7 +42,7 @@ function InputContainer() {
   const navigate = useNavigate();
   const handleLinkOnClick = async (data) => {
     let sendResult = await sendVisitorData({ ...data });
-    console.log(data)
+    console.log(data);
     console.log(sendResult);
     if (sendResult.status == 200) {
       navigate("/complete", { state: data.visitorName });
@@ -60,7 +61,7 @@ function InputContainer() {
   return (
     <Container>
       <Center>
-        <HeaderComponent/>
+        <HeaderComponent />
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Lable>
             <Title>카드번호</Title>
@@ -162,7 +163,9 @@ function InputContainer() {
               {errors.temperature?.type === "required" &&
                 "현재 온도를 입력해주세요!"}
             </Error>
-            <Caution>코로나 방역 기준에 맞지 않으면 출입이 불가할 수 있습니다</Caution>
+            <Caution>
+              코로나 방역 기준에 맞지 않으면 출입이 불가할 수 있습니다
+            </Caution>
           </Lable>
           {/* <Lable>
           <PrivacyLabal>
@@ -185,7 +188,7 @@ function InputContainer() {
             <NextBtn onKeyDown={handleKeyDown} />
           </ButtonLable>
         </Form>
-        <FooterComponent/>  
+        <FooterComponent />
       </Center>
     </Container>
   );
@@ -197,7 +200,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  height: 130vh;
+  height: 110vh;
 `;
 
 const Center = styled.div`
@@ -217,11 +220,9 @@ const Form = styled.form`
   justify-content: space-around;
 `;
 
-const Lable = styled.label`
-`;
+const Lable = styled.label``;
 
-const ButtonLable = styled.label`
-`;
+const ButtonLable = styled.label``;
 
 const Title = styled.p`
   padding-bottom: 5px;
@@ -235,7 +236,7 @@ const Title = styled.p`
 `;
 
 const Caution = styled.p`
-    @media (max-width: 300px) {
+  @media (max-width: 300px) {
     width: 200px;
   }
   padding: 5px 0 5px 0;
@@ -312,7 +313,7 @@ const StyledInput = styled.input`
 // `;
 
 const Error = styled.p`
-    @media (max-width: 300px) {
+  @media (max-width: 300px) {
     width: 200px;
     font-size: 14px;
   }

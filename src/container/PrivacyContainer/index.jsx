@@ -3,8 +3,8 @@ import styled from "styled-components";
 import NextBtn from "../../components/buttonComponent/index";
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
-import HeaderComponent from '../../components/headerComponent';
-import FooterComponent from '../../components/footerComponent';
+import HeaderComponent from "../../components/headerComponent";
+import FooterComponent from "../../components/footerComponent";
 
 function Privacy() {
   const [isError, setIsError] = useState(false);
@@ -26,7 +26,7 @@ function Privacy() {
   return (
     <Container>
       <Main>
-        <HeaderComponent/>
+        <HeaderComponent />
         <Content>
           <MainText>개인정보 수집 동의 안내</MainText>
           <SubText>
@@ -51,17 +51,23 @@ function Privacy() {
         </TableContent>
         <OptionalLabel>
           귀하께서는 개인정보 수집에 동의하지 않을 권리가 있습니다. 하지만,
-          동의하지 않을 경우 입실이 어려움을 알려드립니다.
+          동의하지 않을 경우, <br />
+          입실이 어려움을 알려드립니다.
         </OptionalLabel>
-        <br />
-        <OptionalLabel>동의하신 자료는 목적 이외의 용도로는 사용되지 않습니다.</OptionalLabel>
-          <PrivacyLabal>
-            <CheckBox type="checkbox" autoFocus name="privacyLabal" ref={ref} />
-            <PrivacyText>개인정보수집에 동의합니다.</PrivacyText>
-          </PrivacyLabal>
-          {isError && <ErrorText>필수 항목입니다.</ErrorText>}
+        <OptionalLabel style={{ margin: "10px" }}>
+          동의하신 자료는 목적 이외의 용도로는 사용되지 않습니다.
+        </OptionalLabel>
+        <PrivacyLabal>
+          <CheckBox type="checkbox" autoFocus name="privacyLabal" ref={ref} />
+          <PrivacyText>개인정보수집에 동의합니다.</PrivacyText>
+        </PrivacyLabal>
+        {isError ? (
+          <ErrorText>필수 항목입니다.</ErrorText>
+        ) : (
+          <ErrorText></ErrorText>
+        )}
         <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
-        <FooterComponent/>
+        <FooterComponent />
       </Main>
     </Container>
   );
@@ -69,7 +75,10 @@ function Privacy() {
 
 export default Privacy;
 
-const TableBody = styled.tbody``;
+const TableBody = styled.tbody`
+  with: 100%;
+  height: 100%;
+`;
 const TableTr = styled.tr``;
 const TableTh = styled.th`
   @media (min-width: 481px) {
@@ -134,7 +143,7 @@ const Content = styled.div`
   flex-direction: column;
   line-height: 1.5;
   justify-content: center;
-  @media (min-width: 481px){
+  @media (min-width: 481px) {
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
@@ -143,7 +152,7 @@ const Content = styled.div`
 const TableContent = styled.div`
   display: flex;
   width: 90vw;
-  height: 25vh;
+  height: 20vh;
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 30px;
@@ -165,6 +174,7 @@ const SubText = styled.p`
 `;
 const ErrorText = styled.p`
   font-size: 0.9em;
+  height: 20px;
   word-break: keep-all;
   color: red;
   text-align: center;
@@ -199,8 +209,8 @@ const PrivacyLabal = styled.div`
 
 const PrivacyText = styled.p`
   @media (max-width: 300px) {
-      padding-bottom: 10px;
-      font-size: 14px;
+    padding-bottom: 10px;
+    font-size: 14px;
   }
   padding-bottom: 5px;
   font-style: normal;

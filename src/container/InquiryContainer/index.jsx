@@ -89,7 +89,9 @@ function InquiryContainer() {
                     <Row>
                       <Number>{index + 1}</Number>
                       <CardNumber>{item.pinNumber}</CardNumber>
-                      <DateTime>{item.entranceMonth}/{item.entranceDay}</DateTime>
+                      <DateTime>
+                        {item.entranceMonth}/{item.entranceDay}
+                      </DateTime>
                       <Name>{item.visitorName}</Name>
                       <Phone>{item.visitorPhoneNumber}</Phone>
                       <Reason>{item.visitorReason}</Reason>
