@@ -24,7 +24,10 @@ function IntroduceContainer() {
           </MainText>
           <SubText>방문 등록을 위해 다음을 입력해주세요!!</SubText>
         </Content>
-        <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
+        <Link>
+          <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
+          <GoAdmin href="http://localhost:3000/admin">관리자페이지</GoAdmin>
+        </Link>
       </Main>
     </Container>
   );
@@ -81,6 +84,20 @@ const SubText = styled.p`
     font-size: 0.9em;
   }
 `;
+
+const Link = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+`
+
+const GoAdmin = styled.a`
+  padding: 5px;
+  font-size: 14px;
+  color: #8f8f8f;
+  text-decoration: none;
+`
 
 const Btn = styled.div`
   width: 350px;
