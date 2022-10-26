@@ -12,6 +12,7 @@ function IntroduceContainer() {
       handleLinkOnClick();
     }
   };
+  const link = "https://entry-list-pront.vercel.app/admin"
   return (
     <Container>
       <Main>
@@ -26,7 +27,7 @@ function IntroduceContainer() {
         </Content>
         <Link>
           <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
-          <GoAdmin href="https://entry-list-pront.vercel.app/">관리자페이지</GoAdmin>
+          <GoAdmin href={link}>관리자페이지</GoAdmin>
         </Link>
       </Main>
     </Container>

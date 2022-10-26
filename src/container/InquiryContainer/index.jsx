@@ -21,7 +21,7 @@ function InquiryContainer() {
     // console.log(year, month);
 
     const { data } = await axios.post(
-      "https://entrylist.herokuapp.com/admin",
+      "http://sdhsentrylist.cafe24app.com/admin",
       qs.stringify({ lookupYear: year, lookupMonth: month }),
       {
         headers: { "content-type": "application/x-www-form-urlencoded" },
