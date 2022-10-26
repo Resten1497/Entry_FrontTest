@@ -100,7 +100,9 @@ function InputContainer() {
             <StyledInput
               type="text"
               name="visitorPhoneNumber"
-              placeholder="010-8888-8888"
+              placeholder="숫자만 입력해주세요"
+              minLength={13}
+              maxLength={13}
               value={visitorPhoneNumber}
               autoComplete="off"
               {...register("visitorPhoneNumber", {
