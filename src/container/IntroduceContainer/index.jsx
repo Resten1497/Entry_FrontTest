@@ -26,7 +26,7 @@ function IntroduceContainer() {
         </Content>
         <Link>
           <NextBtn onClick={handleLinkOnClick} onKeyDown={handleKeyDown} />
-          <GoAdmin href="http://localhost:3000/admin">관리자페이지</GoAdmin>
+          <GoAdmin href="https://entry-list-pront.vercel.app/">관리자페이지</GoAdmin>
         </Link>
       </Main>
     </Container>
