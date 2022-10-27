@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import QrReader from "react-qr-reader";
+//import QrReader from "react-qr-reader";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useMutation } from "@tanstack/react-query";
@@ -30,7 +30,7 @@ const ExitContainer = () => {
   return (
     <>
       <Wrap>
-        <QrReader
+        {/* <QrReader
           ref={ref}
           delay={1000}
           facingMode={"user"}
@@ -42,7 +42,7 @@ const ExitContainer = () => {
           }}
           className="QrReader"
           onError={(err) => console.log(err)}
-        />
+        /> */}
         <Title>방문증에 있는 QR 코드를 화면에 보여주세요</Title>
         {isLoading ? <WarinningText>요청중</WarinningText> : null}
         {isError ? <WarinningText>오류가 발생했습니다.</WarinningText> : null}
